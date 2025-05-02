@@ -70,11 +70,17 @@
     #header-layer-1 {
       /* background: linear-gradient(to right, rgba(66, 133, 244, 0.9), rgba(66, 133, 244, 1)); */
       background: rgba(104, 66, 244, 0.4);
-      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+    }
+    @media (max-width: 600px) {
+      #header-layer-1 {
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      }
     }
     #header-layer-2 {
       background: rgba(175, 54, 54, 0.4);
-      -webkit-background-clip: text;
+      background-clip: text;
       translate: -4px 0;
     }
     @media (max-width: 600px) {
@@ -84,7 +90,7 @@
     }
     #header-layer-3 {
       background: rgba(66, 133, 244, 0.8);
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-stroke: 0.2px rgb(162, 198, 255);
       translate: -7px 0;
     }
@@ -94,9 +100,10 @@
       }
     }
     #header-layer-4 {
-      background: rgba(154, 193, 255, 0.7);
-      -webkit-background-clip: text;
+      background: rgba(160, 200, 255, 0.7);
+      background-clip: text;
       translate: -10px 0;
+      -webkit-text-stroke: 1px rgba(0,0,0,0.3);
     }
     @media (max-width: 600px) {
       #header-layer-4 {
