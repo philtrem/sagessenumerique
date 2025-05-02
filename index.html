@@ -23,11 +23,6 @@
       }
     }
     nav ul { display: flex; justify-content: center; list-style: none; padding: 0; }
-    @media (max-width: 600px) {
-      nav ul {
-        justify-content: flex-start;
-      }
-    }
     nav li { margin: 0 1rem; }
     @media (max-width: 600px) {
       nav li {
@@ -47,11 +42,12 @@
       position: relative;
       max-width: 800px; 
       margin: 2rem auto 5rem auto; 
-      padding: 0 0.5rem; 
       height: 4.5rem;
+      padding: 0;
     }
     .content-header h1 {
       position: absolute;
+      padding-left: 7px;
       color: transparent;
       font-size: 4.5rem;
       font-weight: 300;
@@ -64,6 +60,7 @@
     }
     @media (max-width: 600px) {
       .content-header h1 {
+        text-align: center;
         font-size: 3rem;
         transform: scaleY(1.2);
         line-height: 1;
@@ -80,28 +77,56 @@
       -webkit-background-clip: text;
       translate: -4px 0;
     }
+    @media (max-width: 600px) {
+      #header-layer-2 {
+        translate: -2px 0;
+      }
+    }
     #header-layer-3 {
       background: rgba(66, 133, 244, 0.8);
       -webkit-background-clip: text;
       -webkit-text-stroke: 0.2px rgb(162, 198, 255);
       translate: -7px 0;
     }
-    /* #header-layer-4 {
+    @media (max-width: 600px) {
+      #header-layer-3 {
+        translate: -4px 0;
+      }
+    }
+    #header-layer-4 {
       background: rgba(154, 193, 255, 0.7);
       -webkit-background-clip: text;
       translate: -10px 0;
-    } */
+    }
+    @media (max-width: 600px) {
+      #header-layer-4 {
+        translate: -6px 0;
+      }
+    }
     
 
     /* Sections */
     section { max-width: 800px; margin: 3rem auto; padding: 0 0.5rem; }
+    @media (max-width: 600px) {
+      section {
+        padding-left: 1rem;
+      }
+    }
     section h2 { 
       margin-bottom: 0.5rem; 
       font-size: 2.5rem;
       color: #3b3b3b;
       font-weight: 600;
     }
+    @media (max-width: 600px) {
+      section h2 {
+        font-size: 1.5rem;
+      }
+    }
     section p, section li { margin-bottom: 0.75rem; font-weight: 400; color: #2e2e2e; }
+    @media (max-width: 600px) {
+      section ul { padding-left: 0.75rem; }
+    }
     .services-list { list-style: disc inside; }
 
     /* Contact Form */
