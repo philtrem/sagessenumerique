@@ -9,7 +9,7 @@
     /* Reset & Base */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: #2e2e2e; background: #ffffff; margin: 0; }
-    a { color: #4285f4; text-decoration: none; }
+    a { color: #42a1f4; text-decoration: none; }
 
     /* Navigation */
     nav {
@@ -30,12 +30,12 @@
     nav a { 
       display: block; 
       padding: 0.75rem 1rem; 
-      color: rgb(230, 234, 240);
+      color: rgb(236, 241, 246);
       text-shadow: 0 1px 4px rgba(0,0,0, 1);
       font-weight: 500;
     }
-    nav a:hover { color: #4285f4; }
-
+    nav a:hover { color: #42a1f4; }
+    
     /* Content Header */
     .content-header {
       position: relative;
@@ -65,26 +65,26 @@
       }
     }
     #header-layer-1 {
-      background: rgba(104, 66, 244, 0.4);
+      background: rgba(104, 66, 244, 0.3);
       background-clip: text;
-      text-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     }
     #header-layer-2 {
-      background: rgba(175, 54, 54, 0.4);
+      background: rgba(182, 71, 71, 0.3);
       background-clip: text;
       translate: -4px 0;
     }
     #header-layer-3 {
-      background: rgba(66, 133, 244, 0.8);
+      background: rgba(66, 161, 244, 0.8);
       background-clip: text;
       -webkit-text-stroke: 0.2px rgb(162, 198, 255);
       translate: -7px 0;
     }
     #header-layer-4 {
-      background: rgba(160, 200, 255, 0.7);
+      background: rgba(160, 206, 255, 0.7);
       background-clip: text;
       translate: -10px 0;
-      -webkit-text-stroke: 0.8px rgba(0,0,0,0.3);
+      -webkit-text-stroke: 0.8px rgba(0,0,0,0.2);
     }
     @media (max-width: 600px) {
       #header-layer-1 { text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); }
@@ -99,11 +99,11 @@
     section h2 {
       margin-bottom: 0.5rem;
       font-size: 2.5rem;
-      color: #3b3b3b;
+      color: #444444;
       font-weight: 600;
     }
     @media (max-width: 600px) { section h2 { font-size: 1.5rem; } }
-    section p, section li { margin-bottom: 0.75rem; font-weight: 400; color: #2e2e2e; }
+    section p, section li { margin-bottom: 0.75rem; font-weight: 400; color: #3d3d3d; }
 
     /* Services Cards (2x2 Grid) */
     .services-grid {
@@ -115,10 +115,10 @@
     }
     .service-card {
       flex: 1 1 calc(50% - 1rem);
-      background: #cfcfcf;
+      background: linear-gradient(to bottom, #f4f4f4, #e4e4e4);
       padding: 1rem;
       border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0,0,0, 0.7);
+      box-shadow: 0 2px 4px rgba(0,0,0, 0.4);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .service-card:hover {
@@ -127,7 +127,7 @@
     .service-card h3 {
       margin-bottom: 0.5rem;
       font-size: 1.25rem;
-      color: #4285f4;
+      color: #42a1f4;
     }
     .service-card p {
       font-size: 1rem;
@@ -140,29 +140,30 @@
       padding: 0.75rem;
       border: 0;
       border-radius: 4px;
-      background: linear-gradient(to bottom, #b3babe, #c1c1c1);
+      background: linear-gradient(to bottom, #fafafa, #f4f4f4);
+      /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); */
       color: #1e1e1e;
       font-family: 'Open Sans', sans-serif;
       font-weight: 300;
     }
     form input:focus, form textarea:focus {
-      outline: 2px solid #4285f4;
+      outline: 2px solid #42a1f4;
     }
     form textarea { resize: none; }
     form button {
       padding: 0.75rem;
       border: none;
       border-radius: 4px;
-      background: linear-gradient(to bottom, #4789f4, #2b569c);
+      background: linear-gradient(to bottom, #42a1f4, #2f73af);
       /* color: #202020; */
       color: #f2f2f2;
-      text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 1px rgba(0,0,0, 0.8);
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       font-family: 'Open Sans', sans-serif;
     }
-    form button:hover { background: linear-gradient(to bottom right, #2767bb, #18437b) }
+    form button:hover { background: linear-gradient(to bottom right, #2f73af, #1e4b73) }
 
     /* Footer */
     footer { text-align: center; padding: 1rem; background: #141414; font-size: 0.9rem; color: #ededed; font-weight: 300; }
