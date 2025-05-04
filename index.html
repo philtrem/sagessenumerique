@@ -94,9 +94,20 @@
     .content-header {
       position: relative;
       max-width: 1000px;
-      margin: 5rem auto 5rem;
+      margin: 5rem auto;
       height: 6.4rem;
       padding: 0;
+    }
+    @media (max-width: 1000px) {
+      .content-header {
+        margin: 3rem auto;
+        height: 4.5rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .content-header {
+        height: 5.5rem;
+      }
     }
 
     .content-header h1 {
@@ -112,12 +123,21 @@
       user-select: none;
     }
 
+    @media (max-width: 1000px) {
+      .content-header h1 {
+        font-size: 4.5rem;
+        transform: scaleY(1.2);
+        line-height: 1;
+        margin-left: 0.75rem;
+      }
+    }
+
     @media (max-width: 600px) {
       .content-header h1 {
-        text-align: center;
         font-size: 3rem;
         transform: scaleY(1.2);
         line-height: 1;
+        margin-left: 0.75rem;
       }
     }
 
