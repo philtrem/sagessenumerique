@@ -27,13 +27,24 @@
 
     /* Navigation */
     nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: linear-gradient(to bottom, rgb(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
-      box-shadow: 0 0 15px rgb(0, 0, 0, 0.9);
+      /* background: linear-gradient(to bottom, rgb(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)); */
+      /* background: rgba(255, 255, 255, 0.9); */
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
       font-size: 1.1rem;
-      border-bottom: 1px solid rgb(25, 25, 25);
+      border-bottom: 2px solid rgb(77, 77, 77);
+      background: linear-gradient(to bottom, #ffffff, rgb(242, 242, 242));
+      height: 3.5rem;
+      padding: 0.5rem;
+    }
+    nav.scrolled {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
     }
 
     nav ul {
@@ -45,6 +56,16 @@
 
     nav li {
       margin: 0 1rem;
+      line-height: 1;
+    }
+    nav li:hover {
+      border-radius: 5px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    nav.scrolled li:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+      box-shadow:    0 4px 4px rgba(0, 0, 0, 0.6);
     }
 
     @media (max-width: 600px) {
@@ -61,14 +82,16 @@
     nav a {
       display: block;
       padding: 0.75rem 1rem;
-      color: rgb(236, 241, 246);
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+      color: #2e2e2e;
+      /* color: rgb(236, 241, 246);
+      text-shadow: 0 1px 4px rgb(0, 0, 0); */
       font-weight: 500;
       user-select: none;
     }
 
-    nav a:hover {
-      color: #42a1f4;
+    nav.scrolled a {
+      color: #ffffff;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
 
     /* Content Header */
@@ -349,3 +372,26 @@
   </footer>
 </body>
 </html>
+<script>
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Add a scroll event listener to apply scrolled class to the nav element when scrolled
+  const nav = document.querySelector('nav');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
