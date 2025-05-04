@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sagesse Numérique</title>
-
   <style>
     /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: #2e2e2e; background: #ffffff; margin: 0; }
-    a { color: #42a1f4; text-decoration: none; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: #2e2e2e;
+      background: #ffffff;
+      margin: 0;
+    }
+
+    a {
+      color: #42a1f4;
+      text-decoration: none;
+    }
 
     /* Navigation */
     nav {
@@ -21,35 +35,56 @@
       font-size: 1.1rem;
       border-bottom: 1px solid rgb(25, 25, 25);
     }
-    nav ul { display: flex; justify-content: center; list-style: none; padding: 0; }
-    nav li { margin: 0 1rem; }
-    @media (max-width: 600px) {
-      nav { font-size: 1rem; line-height: 1; }
-      nav li { margin: 0; }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
     }
-    nav a { 
-      display: block; 
-      padding: 0.75rem 1rem; 
+
+    nav li {
+      margin: 0 1rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      nav li {
+        margin: 0;
+      }
+    }
+
+    nav a {
+      display: block;
+      padding: 0.75rem 1rem;
       color: rgb(236, 241, 246);
-      text-shadow: 0 1px 4px rgba(0,0,0, 1);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 1);
       font-weight: 500;
       user-select: none;
     }
-    nav a:hover { color: #42a1f4; }
-    
+
+    nav a:hover {
+      color: #42a1f4;
+    }
+
     /* Content Header */
     .content-header {
       position: relative;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 5rem auto 5rem;
-      height: 4.5rem;
+      height: 6.4rem;
       padding: 0;
     }
+
     .content-header h1 {
       position: absolute;
       padding-left: 7px;
       color: transparent;
-      font-size: 4.5rem;
+      font-size: 6.25rem;
       font-weight: 300;
       line-height: 1.1;
       letter-spacing: 0.05em;
@@ -57,6 +92,7 @@
       transform-origin: center;
       user-select: none;
     }
+
     @media (max-width: 600px) {
       .content-header h1 {
         text-align: center;
@@ -65,46 +101,89 @@
         line-height: 1;
       }
     }
+
     #header-layer-1 {
       background: rgba(104, 66, 244, 0.3);
       background-clip: text;
       text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     }
+
     #header-layer-2 {
       background: rgba(182, 71, 71, 0.3);
       background-clip: text;
       translate: -4px 0;
     }
+
     #header-layer-3 {
       background: rgba(66, 161, 244, 0.8);
       background-clip: text;
       -webkit-text-stroke: 0.2px rgb(162, 198, 255);
       translate: -7px 0;
     }
+
     #header-layer-4 {
       background: rgba(160, 206, 255, 0.7);
       background-clip: text;
       translate: -10px 0;
-      -webkit-text-stroke: 0.8px rgba(0,0,0,0.2);
+      -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.2);
     }
+
     @media (max-width: 600px) {
-      #header-layer-1 { text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); }
-      #header-layer-2 { translate: -2px 0; }
-      #header-layer-3 { translate: -4px 0; }
-      #header-layer-4 { translate: -6px 0; }
+      #header-layer-1 {
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      #header-layer-2 {
+        translate: -2px 0;
+      }
+
+      #header-layer-3 {
+        translate: -4px 0;
+      }
+
+      #header-layer-4 {
+        translate: -6px 0;
+      }
     }
 
     /* Sections */
-    section { max-width: 800px; margin: 3rem auto; padding: 0 0.5rem; }
-    @media (max-width: 600px) { section { padding-left: 1rem; } }
+    section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding-left: 1rem;
+      }
+    }
+
     section h2 {
       margin-bottom: 0.5rem;
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: #444444;
       font-weight: 600;
     }
-    @media (max-width: 600px) { section h2 { font-size: 1.5rem; } }
-    section p, section li { margin-bottom: 0.75rem; font-weight: 400; color: #3d3d3d; }
+
+    @media (max-width: 600px) {
+      section h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    section p,
+    section li {
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+      color: #3d3d3d;
+    }
+
+    #about {
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+
 
     /* Services Cards (2x2 Grid) */
     .services-grid {
@@ -115,6 +194,7 @@
       list-style: none;
       user-select: none;
     }
+
     .service-card {
       flex: 1 1 calc(50% - 1rem);
       background: linear-gradient(to bottom, #f4f4f4, #e4e4e4);
@@ -123,23 +203,43 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .service-card:hover {
       transform: translate(0, -4px);
       box-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
     }
+
     .service-card h3 {
       margin-bottom: 0.5rem;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       color: #42a1f4;
     }
+
+    @media (max-width: 600px) {
+      .service-card h3 {
+        font-size: 1.25rem;
+      }
+    }
+
     .service-card p {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #555555;
     }
 
+    @media (max-width: 600px) {
+      .service-card p {
+        font-size: 1rem;
+      }
+    }
+
     /* Contact Form */
-    form { display: grid; gap: 1rem; }
-    form input, form textarea {
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    form input,
+    form textarea {
       padding: 0.75rem;
       border: 0;
       border-radius: 4px;
@@ -149,10 +249,16 @@
       font-family: 'Open Sans', sans-serif;
       font-weight: 300;
     }
-    form input:focus, form textarea:focus {
+
+    form input:focus,
+    form textarea:focus {
       outline: 2px solid #42a1f4;
     }
-    form textarea { resize: none; }
+
+    form textarea {
+      resize: none;
+    }
+
     form button {
       padding: 0.75rem;
       border: none;
@@ -160,18 +266,29 @@
       background: linear-gradient(to bottom, #42a1f4, #2f73af);
       /* color: #202020; */
       color: #f2f2f2;
-      text-shadow: 0 1px 1px rgba(0,0,0, 0.8);
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       font-family: 'Open Sans', sans-serif;
     }
-    form button:hover { background: linear-gradient(to bottom right, #2f73af, #1e4b73) }
+
+    form button:hover {
+      background: linear-gradient(to bottom right, #2f73af, #1e4b73)
+    }
 
     /* Footer */
-    footer { text-align: center; padding: 1rem; background: #141414; font-size: 0.9rem; color: #ededed; font-weight: 300; }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #141414;
+      font-size: 0.9rem;
+      color: #ededed;
+      font-weight: 300;
+    }
   </style>
 </head>
+
 <body>
   <nav>
     <ul>
@@ -189,26 +306,31 @@
     </header>
     <section id="about">
       <h2>À propos</h2>
-      <p>Sagesse Numérique, <strong>partenaire de confiance</strong>, allie expertise technique et ingéniosité pour créer des solutions logicielles personnalisées et faciles à utiliser.</p>
+      <p>Sagesse Numérique, <strong>partenaire de confiance</strong>, allie expertise technique et ingéniosité pour
+        créer des solutions logicielles personnalisées et faciles à utiliser.</p>
     </section>
     <section id="services">
       <h2>Services</h2>
       <div class="services-grid">
         <div class="service-card">
           <h3>Développement web & mobile</h3>
-          <p>Création d'applications réactives et multiplateformes.</p>
+          <p>Applications réactives, performantes et multiplateformes, conçues avec une attention soutenue à l’UX, à
+            l’accessibilité et à la sécurité, du prototype au déploiement continu.</p>
         </div>
         <div class="service-card">
           <h3>Intégration systèmes & API</h3>
-          <p>Liaison de vos services et automatisation des flux.</p>
+          <p>Connexion transparente de services internes et solutions tierces grâce à des APIs fiables, documentés et
+            sécurisés, automatisant les flux pour plus de cohérence, traçabilité et efficacité.</p>
         </div>
         <div class="service-card">
           <h3>Architecture logicielle</h3>
-          <p>Conception modulaire et évolutive de vos projets.</p>
+          <p>Architecture modulaire destinée à limiter la dette technique, faciliter la maintenance et garantir des
+            performances stables sur des volumes importants.</p>
         </div>
         <div class="service-card">
           <h3>Maintenance & Support</h3>
-          <p>Assistance continue et optimisations régulières.</p>
+          <p> Mises à jour et optimisations continues, afin de maintenir disponibilité, performance, et valeur
+            stratégique de la plateforme.</p>
         </div>
       </div>
     </section>
