@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +41,7 @@
       height: 3.5rem;
       padding: 0.5rem;
     }
+
     nav.scrolled {
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
@@ -56,25 +58,16 @@
       margin: 0 1rem;
       line-height: 1;
     }
+
     nav li:hover {
       border-radius: 5px;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
     }
+
     nav.scrolled li:hover {
       background-color: rgba(0, 0, 0, 0.5);
-      box-shadow:    0 4px 4px rgba(0, 0, 0, 0.6);
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        font-size: 1rem;
-        line-height: 1;
-      }
-
-      nav li {
-        margin: 0;
-      }
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);
     }
 
     nav a {
@@ -90,65 +83,151 @@
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
 
+    /* Tablet Portrait */
+    @media (max-width: 834px) {
+      nav {
+        font-size: 1rem;
+      }
+
+      nav li {
+        margin: 0 0.5rem;
+      }
+    }
+
+    /* Mobile Landscape & Small Tablet */
+    @media (max-width: 767px) {
+      nav a {
+        padding: 0.75rem 0.75rem;
+      }
+    }
+
+    /* Mobile Portrait */
+    @media (max-width: 480px) {
+      nav {
+        font-size: 0.9rem;
+        line-height: 1;
+      }
+
+      nav li {
+        margin: 0;
+      }
+
+      nav a {
+        padding: 0.75rem 0.5rem;
+      }
+    }
+
     /* Content Header */
     .content-header {
       position: relative;
       max-width: 1000px;
       margin: 5rem auto;
-      height: 6.4rem;
+      min-height: 6.4rem;
       padding: 0;
-    }
-    @media (max-width: 1000px) {
-      .content-header {
-        margin: 3rem auto;
-        height: 4.5rem;
-      }
-    }
-    @media (max-width: 740px) {
-      .content-header {
-        margin-bottom: 7rem;
-      }
-    }
-    @media (max-width: 600px) {
-      .content-header {
-        margin: 3rem auto;
-        height: 3rem;
-      }
-    }
-    @media (max-width: 500px) {
-      .content-header {
-        height: 5.5rem;
-      }
+      overflow: visible;
     }
 
     .content-header h1 {
       position: absolute;
+      top: -0.5rem;
+      /* Negative top to give room for ascenders */
       padding-left: 7px;
+      padding-bottom: 2rem;
+      /* Extra padding for descenders */
       color: transparent;
       font-size: 6.25rem;
       font-weight: 300;
-      line-height: 1.1;
+      line-height: 1.4;
       letter-spacing: 0.05em;
       transform: scaleY(1.5);
       transform-origin: center;
       user-select: none;
+      overflow: visible;
     }
 
-    @media (max-width: 1000px) {
+    /* Desktop Small */
+    @media (max-width: 1024px) {
+      .content-header {
+        margin: 4rem auto 3rem;
+        min-height: 5.5rem;
+        padding: 0 1rem;
+      }
+
       .content-header h1 {
-        font-size: 4.5rem;
-        transform: scaleY(1.2);
-        line-height: 1;
-        margin-left: 0.75rem;
+        font-size: 5.5rem;
+        transform: scaleY(1.3);
+        line-height: 1.4;
+        padding-bottom: 1.5rem;
       }
     }
 
-    @media (max-width: 600px) {
+    /* Intermediate range - fixes overlap issue */
+    @media (max-width: 900px) {
+      .content-header {
+        margin: 3.5rem auto 6rem;
+        min-height: 6rem;
+        /* Use min-height instead of height */
+        padding: 0 1rem;
+      }
+
       .content-header h1 {
-        font-size: 3rem;
+        font-size: 5rem;
+        transform: scaleY(1.25);
+        line-height: 1.5;
+        /* Increased line-height for descenders */
+        padding-bottom: 2rem;
+        /* Extra space for descenders */
+        top: -0.5rem;
+      }
+    }
+
+    /* Tablet Portrait (including iPad 10.9") */
+    @media (max-width: 834px) {
+      .content-header {
+        margin: 3.5rem auto 5.5rem;
+        min-height: 5.5rem;
+        padding: 0 1rem;
+      }
+
+      .content-header h1 {
+        font-size: 4.5rem;
         transform: scaleY(1.2);
-        line-height: 1;
+        line-height: 1.5;
         margin-left: 0.75rem;
+        padding-bottom: 1.5rem;
+        top: -0.5rem;
+      }
+    }
+
+    /* Mobile Landscape & Small Tablet */
+    @media (max-width: 767px) {
+      .content-header {
+        margin: 3rem auto 5rem;
+        min-height: 4.5rem;
+      }
+
+      .content-header h1 {
+        font-size: 3.5rem;
+        line-height: 1.4;
+        padding-bottom: 1rem;
+        top: -0.3rem;
+      }
+    }
+
+    /* Mobile Portrait */
+    @media (max-width: 480px) {
+      .content-header {
+        margin: 2.5rem auto 4rem;
+        min-height: 3.5rem;
+      }
+
+      .content-header h1 {
+        font-size: 2.5rem;
+        transform: scaleY(1.2);
+        margin-left: 0.5rem;
+        line-height: 1.4;
+        padding-bottom: 1rem;
+        top: -0.2rem;
       }
     }
 
@@ -178,21 +257,37 @@
       -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.2);
     }
 
-    @media (max-width: 600px) {
-      #header-layer-1 {
-        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-      }
-
+    @media (max-width: 767px) {
       #header-layer-2 {
         translate: -2px 0;
       }
 
       #header-layer-3 {
-        translate: -4px 0;
+        translate: -5px 0;
       }
 
       #header-layer-4 {
-        translate: -6px 0;
+        translate: -7px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #header-layer-1 {
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      }
+
+      #header-layer-2 {
+        translate: -1.5px 0;
+      }
+
+      #header-layer-3 {
+        translate: -3px 0;
+        -webkit-text-stroke: 0.1px rgb(162, 198, 255);
+      }
+
+      #header-layer-4 {
+        translate: -4.5px 0;
+        -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.2);
       }
     }
 
@@ -203,9 +298,24 @@
       padding: 0 0.5rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 1024px) {
       section {
-        padding-left: 1rem;
+        margin: 3.5rem auto;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 834px) {
+      section {
+        margin: 3.5rem auto;
+        padding: 0 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        margin: 2rem auto;
+        padding: 0 1.8rem;
       }
     }
 
@@ -216,9 +326,21 @@
       font-weight: 600;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 834px) {
       section h2 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      section h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section h2 {
+        font-size: 1.75rem;
       }
     }
 
@@ -234,29 +356,74 @@
       line-height: 1.5;
     }
 
+    @media (max-width: 834px) {
+      #about {
+        font-size: 1.15rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #about {
+        font-size: 1.1rem;
+      }
+    }
 
     /* Services Cards (2x2 Grid) */
     .services-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
       list-style: none;
       user-select: none;
     }
 
+    /* Tablet Portrait - Single Column */
+    @media (max-width: 834px) {
+      .services-grid {
+        gap: 1.25rem;
+      }
+    }
+
+    /* Mobile - Single Column */
+    @media (max-width: 767px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
     .service-card {
-      flex: 1 1 calc(50% - 1rem);
       background: linear-gradient(to bottom, #f4f4f4, #e4e4e4);
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: 4px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
+    @media (max-width: 834px) {
+      .service-card {
+        padding: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .service-card {
+        padding: 1rem;
+      }
+    }
+
     .service-card:hover {
       transform: translate(0, -4px);
       box-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Disable hover effects on touch devices */
+    @media (hover: none) {
+      .service-card:hover {
+        transform: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
     }
 
     .service-card h3 {
@@ -265,7 +432,13 @@
       color: #42a1f4;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 834px) {
+      .service-card h3 {
+        font-size: 1.35rem;
+      }
+    }
+
+    @media (max-width: 480px) {
       .service-card h3 {
         font-size: 1.25rem;
       }
@@ -276,7 +449,13 @@
       color: #555555;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 834px) {
+      .service-card p {
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 480px) {
       .service-card p {
         font-size: 1rem;
       }
@@ -286,6 +465,13 @@
     form {
       display: grid;
       gap: 1rem;
+      max-width: 600px;
+    }
+
+    @media (max-width: 834px) {
+      form {
+        max-width: 100%;
+      }
     }
 
     form input,
@@ -297,6 +483,7 @@
       color: #1e1e1e;
       font-family: 'Open Sans', sans-serif;
       font-weight: 300;
+      font-size: 1rem;
     }
 
     form input:focus,
@@ -362,8 +549,8 @@
       <div class="services-grid">
         <div class="service-card">
           <h3>Développement web & mobile</h3>
-          <p>Applications réactives, performantes et multiplateformes, conçues avec une attention soutenue à l’UX, à
-            l’accessibilité et à la sécurité, du prototype au déploiement continu.</p>
+          <p>Applications réactives, performantes et multiplateformes, conçues avec une attention soutenue à l'UX, à
+            l'accessibilité et à la sécurité, du prototype au déploiement continu.</p>
         </div>
         <div class="service-card">
           <h3>Intégration systèmes & API</h3>
@@ -396,6 +583,7 @@
     &copy; 2025 Sagesse Numérique
   </footer>
 </body>
+
 </html>
 <script>
   // Smooth scrolling for navigation links
