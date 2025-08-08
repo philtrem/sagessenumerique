@@ -216,65 +216,6 @@
       overflow: visible;
     }
 
-    /* iPad Specific Font Weight and Size Adjustments */
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-      body {
-        font-weight: 600;
-        -webkit-font-smoothing: subpixel-antialiased;
-      }
-
-      nav a {
-        font-weight: 800;
-        -webkit-text-stroke: 0.15px currentColor;
-      }
-
-      section h2 {
-        font-weight: 900;
-        -webkit-text-stroke: 0.2px currentColor;
-      }
-
-      section p,
-      section li {
-        font-weight: 600;
-        -webkit-text-stroke: 0.1px currentColor;
-      }
-
-      .service-card h3 {
-        font-weight: 800;
-        -webkit-text-stroke: 0.15px currentColor;
-      }
-
-      .service-card p {
-        /* font-weight: 600; */
-        -webkit-text-stroke: 0.1px currentColor;
-      }
-
-      .lang-option {
-        font-weight: 800;
-      }
-
-      form button {
-        font-weight: 900;
-      }
-
-      /* Header title adjustments for iPad to match desktop width and alignment */
-      .content-header {
-        /* padding: 0 1rem !important; */
-        padding: 0 0.5rem !important;
-      }
-
-      .content-header h1 {
-        font-size: 5.5rem !important;
-        letter-spacing: 0.08em !important;
-        font-weight: 500 !important;
-        /* transform: scaleX(1.15) scaleY(1.2) !important; */
-        -webkit-text-stroke: 0.3px transparent;
-        /* padding-left: 1rem !important; */
-        /* margin-left: 0 !important; */
-      }
-    }
-
-
     /* Desktop Small */
     @media (max-width: 1024px) {
       .content-header {
@@ -296,7 +237,6 @@
       .content-header {
         margin: 3.5rem auto 2rem;
         min-height: 5rem;
-        /* Use min-height instead of height */
         padding: 0 1rem;
       }
 
@@ -311,7 +251,7 @@
       }
     }
 
-    /* Tablet Portrait (including iPad 10.9") */
+    /* Tablet Portrait */
     @media (max-width: 834px) {
       .content-header {
         min-height: 4.5rem;
@@ -385,6 +325,76 @@
         line-height: 1.4;
         padding-bottom: 1rem;
         top: -0.2rem;
+      }
+    }
+
+    /* iPad Specific Font Weight and Size Adjustments */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      body {
+        font-weight: 600;
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+
+      nav a {
+        font-weight: 800;
+        -webkit-text-stroke: 0.15px currentColor;
+      }
+
+      section h2 {
+        font-weight: 900;
+        -webkit-text-stroke: 0.2px currentColor;
+      }
+
+      section p,
+      section li {
+        font-weight: 600;
+        -webkit-text-stroke: 0.1px currentColor;
+      }
+
+      .service-card h3 {
+        font-weight: 800;
+        -webkit-text-stroke: 0.15px currentColor;
+      }
+
+      .service-card p {
+        /* font-weight: 600; */
+        -webkit-text-stroke: 0.1px currentColor;
+      }
+
+      .lang-option {
+        font-weight: 800;
+      }
+
+      form button {
+        font-weight: 900;
+      }
+
+      /* Header title adjustments for iPad to match desktop width and alignment */
+      .content-header {
+        padding: 0 1rem !important;
+      }
+
+      .content-header h1 {
+        font-size: 5.5rem !important;
+        letter-spacing: 0.08em !important;
+        font-weight: 500 !important;
+        /* transform: scaleX(1.15) scaleY(1.2) !important; */
+        -webkit-text-stroke: 0.3px transparent;
+        /* padding-left: 1rem !important; */
+        /* margin-left: 0 !important; */
+      }
+
+      @media (max-width: 940px) {
+        /* Header title adjustments for iPad to match desktop width and alignment */
+        .content-header {
+          padding: 0 1rem !important;
+        }
+
+        .content-header h1 {
+          font-size: 4.5rem !important;
+          letter-spacing: 0.08em !important;
+          font-weight: 400 !important;
+        }
       }
     }
 
@@ -703,7 +713,7 @@
     <section id="about">
       <h2 data-fr="À propos" data-en="About">À propos</h2>
       <p data-fr="Sagesse Numérique, <strong>partenaire de confiance</strong>, allie expertise technique et ingéniosité pour créer des solutions logicielles personnalisées et faciles à utiliser."
-         data-en="Pixel Wisdom, your <strong>trusted partner</strong>, combines technical expertise and ingenuity to create customized, user-friendly software solutions.">
+        data-en="Pixel Wisdom, your <strong>trusted partner</strong>, combines technical expertise and ingenuity to create customized, user-friendly software solutions.">
         Sagesse Numérique, <strong>partenaire de confiance</strong>, allie expertise technique et ingéniosité pour
         créer des solutions logicielles personnalisées et faciles à utiliser.
       </p>
@@ -714,7 +724,7 @@
         <div class="service-card">
           <h3 data-fr="Développement web & mobile" data-en="Web & Mobile Development">Développement web & mobile</h3>
           <p data-fr="Applications réactives, performantes et multiplateformes, conçues avec une attention soutenue à l'UX, à l'accessibilité et à la sécurité, du prototype au déploiement continu."
-             data-en="Responsive, high-performance, cross-platform applications, designed with careful attention to UX, accessibility, and security, from prototype to continuous deployment.">
+            data-en="Responsive, high-performance, cross-platform applications, designed with careful attention to UX, accessibility, and security, from prototype to continuous deployment.">
             Applications réactives, performantes et multiplateformes, conçues avec une attention soutenue à l'UX, à
             l'accessibilité et à la sécurité, du prototype au déploiement continu.
           </p>
@@ -722,7 +732,7 @@
         <div class="service-card">
           <h3 data-fr="Intégration systèmes & API" data-en="Systems & API Integration">Intégration systèmes & API</h3>
           <p data-fr="Connexion transparente de services internes et solutions tierces grâce à des APIs fiables, documentés et sécurisés, automatisant les flux pour plus de cohérence, traçabilité et efficacité."
-             data-en="Seamless connection of internal services and third-party solutions through reliable, documented, and secure APIs, automating workflows for greater consistency, traceability, and efficiency.">
+            data-en="Seamless connection of internal services and third-party solutions through reliable, documented, and secure APIs, automating workflows for greater consistency, traceability, and efficiency.">
             Connexion transparente de services internes et solutions tierces grâce à des APIs fiables, documentés et
             sécurisés, automatisant les flux pour plus de cohérence, traçabilité et efficacité.
           </p>
@@ -730,7 +740,7 @@
         <div class="service-card">
           <h3 data-fr="Architecture logicielle" data-en="Software Architecture">Architecture logicielle</h3>
           <p data-fr="Architecture modulaire destinée à limiter la dette technique, faciliter la maintenance et garantir des performances stables sur des volumes importants."
-             data-en="Modular architecture designed to limit technical debt, facilitate maintenance, and ensure stable performance at scale.">
+            data-en="Modular architecture designed to limit technical debt, facilitate maintenance, and ensure stable performance at scale.">
             Architecture modulaire destinée à limiter la dette technique, faciliter la maintenance et garantir des
             performances stables sur des volumes importants.
           </p>
@@ -738,7 +748,7 @@
         <div class="service-card">
           <h3 data-fr="Maintenance & Support" data-en="Maintenance & Support">Maintenance & Support</h3>
           <p data-fr="Mises à jour et optimisations continues, afin de maintenir disponibilité, performance, et valeur stratégique de la plateforme."
-             data-en="Continuous updates and optimizations to maintain availability, performance, and strategic value of the platform.">
+            data-en="Continuous updates and optimizations to maintain availability, performance, and strategic value of the platform.">
             Mises à jour et optimisations continues, afin de maintenir disponibilité, performance, et valeur
             stratégique de la plateforme.
           </p>
@@ -749,14 +759,17 @@
       <h2 data-fr="Contact" data-en="Contact">Contact</h2>
       <form action="https://formsubmit.co/p.h.i.l@live.ca" method="post">
         <input type="text" name="name" placeholder="Nom" data-placeholder-fr="Nom" data-placeholder-en="Name" required>
-        <input type="email" name="email" placeholder="Courriel" data-placeholder-fr="Courriel" data-placeholder-en="Email" required>
-        <textarea name="message" rows="5" placeholder="Message" data-placeholder-fr="Message" data-placeholder-en="Message" required></textarea>
+        <input type="email" name="email" placeholder="Courriel" data-placeholder-fr="Courriel"
+          data-placeholder-en="Email" required>
+        <textarea name="message" rows="5" placeholder="Message" data-placeholder-fr="Message"
+          data-placeholder-en="Message" required></textarea>
         <button type="submit" data-fr="Envoyer" data-en="Send">Envoyer</button>
       </form>
     </section>
   </main>
   <footer>
-    <span data-fr="&copy; 2025 Sagesse Numérique" data-en="&copy; 2025 Pixel Wisdom">&copy; 2025 Sagesse Numérique</span>
+    <span data-fr="&copy; 2025 Sagesse Numérique" data-en="&copy; 2025 Pixel Wisdom">&copy; 2025 Sagesse
+      Numérique</span>
   </footer>
 </body>
 
@@ -764,17 +777,17 @@
 <script>
   // Language switching functionality
   let currentLang = localStorage.getItem('language') || 'fr';
-  
+
   function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('language', lang);
-    
+
     // Update page title
     document.title = lang === 'fr' ? 'Sagesse Numérique' : 'Pixel Wisdom';
-    
+
     // Update HTML lang attribute
     document.documentElement.lang = lang;
-    
+
     // Update all elements with data attributes (including placeholder elements)
     document.querySelectorAll('[data-fr][data-en], [data-placeholder-fr][data-placeholder-en]').forEach(element => {
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
@@ -788,16 +801,16 @@
         element.innerHTML = element.getAttribute(`data-${lang}`);
       }
     });
-    
+
     // Update language toggle active state
     document.querySelectorAll('.lang-option').forEach(option => {
       option.classList.toggle('active', option.getAttribute('data-lang') === lang);
     });
   }
-  
+
   // Initialize language on page load
   setLanguage(currentLang);
-  
+
   // Add click handlers to language options
   document.querySelectorAll('.lang-option').forEach(option => {
     option.addEventListener('click', () => {
@@ -805,7 +818,7 @@
       setLanguage(lang);
     });
   });
-  
+
   // Smooth scrolling for navigation links
   document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
