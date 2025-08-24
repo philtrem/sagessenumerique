@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -201,10 +201,8 @@
     .content-header h1 {
       position: absolute;
       top: -0.5rem;
-      /* Negative top to give room for ascenders */
       padding-left: 7px;
       padding-bottom: 2rem;
-      /* Extra padding for descenders */
       color: transparent;
       font-size: 6.25rem;
       font-weight: 300;
@@ -244,9 +242,7 @@
         font-size: 5rem;
         transform: scaleY(1.25);
         line-height: 1.5;
-        /* Increased line-height for descenders */
         padding-bottom: 2rem;
-        /* Extra space for descenders */
         top: -0.5rem;
       }
     }
@@ -357,7 +353,6 @@
       }
 
       .service-card p {
-        /* font-weight: 600; */
         -webkit-text-stroke: 0.1px currentColor;
       }
 
@@ -378,14 +373,10 @@
         font-size: 5.5rem !important;
         letter-spacing: 0.08em !important;
         font-weight: 500 !important;
-        /* transform: scaleX(1.15) scaleY(1.2) !important; */
         -webkit-text-stroke: 0.3px transparent;
-        /* padding-left: 1rem !important; */
-        /* margin-left: 0 !important; */
       }
 
       @media (max-width: 940px) {
-        /* Header title adjustments for iPad to match desktop width and alignment */
         .content-header {
           padding: 0 1rem !important;
         }
@@ -632,12 +623,15 @@
     form {
       display: grid;
       gap: 1rem;
-      max-width: 600px;
+      width: 100%;
+      max-width: 100%;
+      grid-template-columns: repeat(2, 1fr); /* Name | Email side-by-side */
+      padding: 0 0.5rem; /* Extra left/right padding */
     }
 
-    @media (max-width: 834px) {
+    @media (max-width: 767px) {
       form {
-        max-width: 100%;
+        grid-template-columns: 1fr; /* Stack on small screens */
       }
     }
 
@@ -660,6 +654,13 @@
 
     form textarea {
       resize: none;
+    }
+
+    /* Make Subject, Message and Button full width (span both columns) */
+    form input[name="subject"],
+    form textarea,
+    form button {
+      grid-column: 1 / -1;
     }
 
     form button {
@@ -758,11 +759,38 @@
     <section id="contact">
       <h2 data-fr="Contact" data-en="Contact">Contact</h2>
       <form action="https://formsubmit.co/p.h.i.l@live.ca" method="post">
-        <input type="text" name="name" placeholder="Nom" data-placeholder-fr="Nom" data-placeholder-en="Name" required>
-        <input type="email" name="email" placeholder="Courriel" data-placeholder-fr="Courriel"
-          data-placeholder-en="Email" required>
-        <textarea name="message" rows="5" placeholder="Message" data-placeholder-fr="Message"
-          data-placeholder-en="Message" required></textarea>
+        <input
+          type="text"
+          name="name"
+          placeholder="Nom"
+          data-placeholder-fr="Nom"
+          data-placeholder-en="Name"
+          required
+        >
+        <input
+          type="email"
+          name="email"
+          placeholder="Courriel"
+          data-placeholder-fr="Courriel"
+          data-placeholder-en="Email"
+          required
+        >
+        <input
+          type="text"
+          name="subject"
+          placeholder="Sujet"
+          data-placeholder-fr="Sujet"
+          data-placeholder-en="Subject"
+          required
+        >
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Message"
+          data-placeholder-fr="Message"
+          data-placeholder-en="Message"
+          required
+        ></textarea>
         <button type="submit" data-fr="Envoyer" data-en="Send">Envoyer</button>
       </form>
     </section>
@@ -771,71 +799,111 @@
     <span data-fr="&copy; 2025 Sagesse Numérique" data-en="&copy; 2025 Pixel Wisdom">&copy; 2025 Sagesse
       Numérique</span>
   </footer>
+
+  <script>
+    // Language switching functionality
+    let currentLang = localStorage.getItem('language') || 'fr';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('language', lang);
+
+      // Update page title
+      document.title = lang === 'fr' ? 'Sagesse Numérique' : 'Pixel Wisdom';
+
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+
+      // Update all elements with data attributes (including placeholders)
+      document.querySelectorAll('[data-fr][data-en], [data-placeholder-fr][data-placeholder-en]').forEach(element => {
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          element.placeholder = element.getAttribute(`data-placeholder-${lang}`);
+        } else if (element.tagName === 'BUTTON') {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        } else {
+          element.innerHTML = element.getAttribute(`data-${lang}`);
+        }
+      });
+
+      // Apply lang attribute to form controls (helps native validation UIs)
+      document.querySelectorAll('form, form input, form textarea, form button').forEach(el => {
+        el.setAttribute('lang', lang);
+        // Clear any previous custom messages so they refresh in the right language
+        if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
+          el.setCustomValidity('');
+        }
+      });
+
+      // Update language toggle active state
+      document.querySelectorAll('.lang-option').forEach(option => {
+        option.classList.toggle('active', option.getAttribute('data-lang') === lang);
+      });
+    }
+
+    // Set up localized validation messages for required/type-mismatch fields
+    function attachLocalizedValidation() {
+      document.querySelectorAll('form input, form textarea').forEach(el => {
+        // When invalid, set a localized custom message
+        el.addEventListener('invalid', () => {
+          const v = el.validity;
+          let msg = '';
+
+          if (currentLang === 'fr') {
+            if (v.valueMissing) msg = 'Veuillez remplir ce champ.';
+            else if (v.typeMismatch && el.type === 'email') msg = 'Veuillez saisir une adresse courriel valide.';
+            else if (v.tooShort) msg = `Veuillez allonger ce texte à au moins ${el.minLength} caractères.`;
+            else if (v.patternMismatch) msg = 'Le format n’est pas valide.';
+            else msg = 'Veuillez corriger ce champ.';
+          } else {
+            if (v.valueMissing) msg = 'Please fill out this field.';
+            else if (v.typeMismatch && el.type === 'email') msg = 'Please enter a valid email address.';
+            else if (v.tooShort) msg = `Please lengthen this text to at least ${el.minLength} characters.`;
+            else if (v.patternMismatch) msg = 'The format is invalid.';
+            else msg = '';
+          }
+
+          el.setCustomValidity(msg);
+        });
+
+        // Clear custom message on input so the browser can re-validate
+        el.addEventListener('input', () => {
+          el.setCustomValidity('');
+        });
+      });
+    }
+
+    // Initialize language on page load
+    setLanguage(currentLang);
+    attachLocalizedValidation();
+
+    // Add click handlers to language options
+    document.querySelectorAll('.lang-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const lang = option.getAttribute('data-lang');
+        setLanguage(lang);
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Add a scroll event listener to apply scrolled class to the nav element when scrolled
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 
 </html>
-<script>
-  // Language switching functionality
-  let currentLang = localStorage.getItem('language') || 'fr';
-
-  function setLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('language', lang);
-
-    // Update page title
-    document.title = lang === 'fr' ? 'Sagesse Numérique' : 'Pixel Wisdom';
-
-    // Update HTML lang attribute
-    document.documentElement.lang = lang;
-
-    // Update all elements with data attributes (including placeholder elements)
-    document.querySelectorAll('[data-fr][data-en], [data-placeholder-fr][data-placeholder-en]').forEach(element => {
-      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-        // Handle placeholder for form inputs
-        element.placeholder = element.getAttribute(`data-placeholder-${lang}`);
-      } else if (element.tagName === 'BUTTON') {
-        // Handle button text
-        element.textContent = element.getAttribute(`data-${lang}`);
-      } else {
-        // Handle regular text content
-        element.innerHTML = element.getAttribute(`data-${lang}`);
-      }
-    });
-
-    // Update language toggle active state
-    document.querySelectorAll('.lang-option').forEach(option => {
-      option.classList.toggle('active', option.getAttribute('data-lang') === lang);
-    });
-  }
-
-  // Initialize language on page load
-  setLanguage(currentLang);
-
-  // Add click handlers to language options
-  document.querySelectorAll('.lang-option').forEach(option => {
-    option.addEventListener('click', () => {
-      const lang = option.getAttribute('data-lang');
-      setLanguage(lang);
-    });
-  });
-
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-
-  // Add a scroll event listener to apply scrolled class to the nav element when scrolled
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  });
-</script>
