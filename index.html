@@ -553,10 +553,13 @@
     }
 
     .service-card {
-      background: linear-gradient(to bottom, #f4f4f4, #e4e4e4);
+      background: linear-gradient(to bottom, rgba(255, 255, 255), rgba(200, 200, 200, 0.1));
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
       padding: 1.5rem;
       border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
@@ -574,14 +577,16 @@
 
     .service-card:hover {
       transform: translate(0, -4px);
-      box-shadow: 0 6px 4px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.5);
     }
 
     /* Disable hover effects on touch devices */
     @media (hover: none) {
       .service-card:hover {
         transform: none;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        background: rgba(255, 255, 255, 0.35);
       }
     }
 
@@ -681,6 +686,185 @@
       background: linear-gradient(to bottom right, #2f73af, #1e4b73)
     }
 
+    /* Featured Work / Case Studies */
+    #work {
+      margin-top: 1rem;
+    }
+
+    .case-study {
+      background: linear-gradient(to bottom, rgba(250, 250, 250, 0.35), rgba(230, 230, 230, 0.3));
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .case-header {
+      background: linear-gradient(to bottom right, rgba(255, 255, 255), rgba(200, 200, 200, 0.1));
+      padding: 2rem 2rem 1.5rem;
+    }
+
+    .meta-tags {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-tag {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #42a1f4;
+      background: rgba(66, 161, 244, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      border: 1px solid rgba(66, 161, 244, 0.25);
+    }
+
+    .case-header h3 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      color: #2e2e2e;
+    }
+
+    .case-header p {
+      font-size: 1.05rem;
+      color: #444;
+      max-width: 700px;
+    }
+
+    .case-header p strong {
+      color: #2e2e2e;
+    }
+
+    .case-header a {
+      color: #42a1f4;
+      font-weight: 500;
+    }
+
+    .case-header a:hover {
+      text-decoration: underline;
+    }
+
+    .case-details {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 0;
+    }
+
+    .case-desc {
+      padding: 2rem;
+      background: linear-gradient(to bottom right, #464646, #181818);
+    }
+
+    .case-desc p {
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .case-desc strong {
+      color: #f4f4f4;
+      font-weight: 600;
+    }
+
+    .case-desc ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .case-desc li {
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .case-desc li:last-child {
+      margin-bottom: 0;
+    }
+
+    .case-desc code {
+      background: rgba(66, 161, 244, 0.15);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      color: #7ec4f4;
+    }
+
+    .case-stats {
+      background: linear-gradient(to bottom right, rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.4));
+      border-left: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .stat-box h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #888;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-box p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #2e2e2e;
+    }
+
+    @media (max-width: 834px) {
+      .case-header {
+        padding: 1.5rem;
+      }
+
+      .case-header h3 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .case-details {
+        grid-template-columns: 1fr;
+      }
+
+      .case-stats {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 1.5rem;
+      }
+
+      .case-desc {
+        padding: 1.5rem;
+      }
+
+      .case-header h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .case-header {
+        padding: 1.25rem;
+      }
+
+      .case-desc {
+        padding: 1.25rem;
+      }
+
+      .case-stats {
+        padding: 1.25rem;
+      }
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -697,6 +881,7 @@
   <nav>
     <ul>
       <li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li>
+      <li><a href="#work" data-fr="Réalisations" data-en="Work">Réalisations</a></li>
       <li><a href="#services" data-fr="Services" data-en="Services">Services</a></li>
       <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
     </ul>
@@ -719,6 +904,116 @@
         Sagesse Numérique, <strong>partenaire de confiance</strong>, allie expertise technique et ingéniosité pour
         créer des solutions logicielles personnalisées et faciles à utiliser.
       </p>
+    </section>
+    <section id="work">
+      <h2 data-fr="Réalisations" data-en="Featured Work">Réalisations</h2>
+
+      <div class="case-study">
+        <div class="case-header">
+          <div class="meta-tags">
+            <span class="meta-tag" data-fr="Ingénierie produit" data-en="Product Engineering">Ingénierie produit</span>
+            <span class="meta-tag" data-fr="Visualisation de données" data-en="Data Visualization">Visualisation de données</span>
+          </div>
+          <h3 data-fr="The ARC Prize Foundation" data-en="The ARC Prize Foundation">The ARC Prize Foundation</h3>
+          <p data-fr="Collaboration avec l'équipe et <strong>Mike Knoop</strong> pour concevoir des <strong>interfaces de visualisation et de données</strong> pour le benchmark AGI doté de plus de 1M$."
+             data-en="Worked with the team and <strong>Mike Knoop</strong> to engineer <strong>visualization and data interfaces</strong> for the $1M+ AGI benchmark.">
+            Collaboration avec l'équipe et <strong>Mike Knoop</strong> pour concevoir des <strong>interfaces de visualisation et de données</strong> pour le benchmark AGI doté de plus de 1M$.
+          </p>
+        </div>
+        <div class="case-details">
+          <div class="case-desc">
+            <p data-fr="Le défi ne consistait pas simplement à &laquo;&nbsp;afficher des données&nbsp;&raquo;, mais à définir comment les chercheurs interagissent avec une nouvelle forme de test d'intelligence. J'ai pris en charge l'implémentation complète de la couche de visualisation."
+               data-en="The challenge was not just &ldquo;displaying data,&rdquo; but defining how researchers interact with a new form of intelligence testing. I owned the end-to-end implementation of the visualization layer.">
+              Le défi ne consistait pas simplement à &laquo;&nbsp;afficher des données&nbsp;&raquo;, mais à définir comment les chercheurs interagissent avec une nouvelle forme de test d'intelligence. J'ai pris en charge l'implémentation complète de la couche de visualisation.
+            </p>
+            <p data-fr="<strong>Impact produit&nbsp;:</strong>" data-en="<strong>Product Impact:</strong>">
+              <strong>Impact produit&nbsp;:</strong>
+            </p>
+            <ul>
+              <li data-fr="&bull; <strong>Explorateur visuel de tâches&nbsp;:</strong> Conception d'un explorateur SVG/Canvas permettant aux utilisateurs de naviguer parmi des centaines de puzzles de raisonnement abstrait."
+                  data-en="&bull; <strong>Visual Task Explorer:</strong> Engineered a complex SVG/Canvas based explorer allowing users to navigate hundreds of abstract reasoning puzzles.">
+                &bull; <strong>Explorateur visuel de tâches&nbsp;:</strong> Conception d'un explorateur SVG/Canvas permettant aux utilisateurs de naviguer parmi des centaines de puzzles de raisonnement abstrait.
+              </li>
+              <li data-fr="&bull; <strong>Infrastructure d'évaluation&nbsp;:</strong> Construction du &laquo;&nbsp;stade&nbsp;&raquo; de performance des modèles, avec des matrices de comparaison haute densité organisant les résultats de dizaines de modèles sur l'ensemble du jeu de données."
+                  data-en="&bull; <strong>Evaluation Infrastructure:</strong> Built the &ldquo;stadium&rdquo; for model performance, creating high-density comparison matrices that organize results across dozens of models and the full evaluation dataset.">
+                &bull; <strong>Infrastructure d'évaluation&nbsp;:</strong> Construction du &laquo;&nbsp;stade&nbsp;&raquo; de performance des modèles, avec des matrices de comparaison haute densité organisant les résultats de dizaines de modèles sur l'ensemble du jeu de données.
+              </li>
+              <li data-fr="&bull; <strong>Architecture des métadonnées&nbsp;:</strong> Conception du schéma et de la logique frontend pour organiser des métadonnées disparates en une expérience de navigation cohérente."
+                  data-en="&bull; <strong>Metadata Architecture:</strong> Designed the schema and frontend logic to organize disparate task metadata into a coherent browsing experience.">
+                &bull; <strong>Architecture des métadonnées&nbsp;:</strong> Conception du schéma et de la logique frontend pour organiser des métadonnées disparates en une expérience de navigation cohérente.
+              </li>
+            </ul>
+          </div>
+          <div class="case-stats">
+            <div class="stat-box">
+              <h4 data-fr="Client" data-en="Client">Client</h4>
+              <p>ARC Prize Foundation</p>
+            </div>
+            <div class="stat-box">
+              <h4 data-fr="Fondateurs" data-en="Founders">Fondateurs</h4>
+              <p>François Chollet & Mike Knoop</p>
+            </div>
+            <div class="stat-box">
+              <h4 data-fr="Résultat" data-en="Outcome">Résultat</h4>
+              <p data-fr="Interface interactive de benchmark" data-en="Interactive Benchmark UI">Interface interactive de benchmark</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-study">
+        <div class="case-header">
+          <div class="meta-tags">
+            <span class="meta-tag" data-fr="Ingénierie produit" data-en="Product Engineering">Ingénierie produit</span>
+            <span class="meta-tag" data-fr="Extension navigateur" data-en="Browser Extension">Extension navigateur</span>
+            <span class="meta-tag" data-fr="Plugin Zotero" data-en="Zotero Plugin">Plugin Zotero</span>
+          </div>
+          <h3>Zotero NotebookLM</h3>
+          <p data-fr="Développé pour <strong><a href='https://juliaturc.com/' target='_blank' rel='noopener'>Julia Turc</a></strong> (Fondatrice, <strong><a href='https://www.youtube.com/@juliaturc1' target='_blank' rel='noopener'>Storia.ai</a></strong>) — un moteur de synchronisation bidirectionnelle reliant <strong>Zotero</strong> à <strong>Google NotebookLM</strong>."
+             data-en="Built for <strong><a href='https://juliaturc.com/' target='_blank' rel='noopener'>Julia Turc</a></strong> (Founder, <strong><a href='https://www.youtube.com/@juliaturc1' target='_blank' rel='noopener'>Storia.ai</a></strong>) — a bidirectional sync engine connecting <strong>Zotero</strong> with <strong>Google NotebookLM</strong>.">
+            Développé pour <strong><a href="https://juliaturc.com/" target="_blank" rel="noopener">Julia Turc</a></strong> (Fondatrice, <strong><a href="https://www.youtube.com/@juliaturc1" target="_blank" rel="noopener">Storia.ai</a></strong>) — un moteur de synchronisation bidirectionnelle reliant <strong>Zotero</strong> à <strong>Google NotebookLM</strong>.
+          </p>
+        </div>
+        <div class="case-details">
+          <div class="case-desc">
+            <p data-fr="Les chercheurs utilisant Zotero n'avaient aucun moyen d'exploiter les fonctionnalités IA de NotebookLM sur leurs bibliothèques. En l'absence d'API publique pour NotebookLM grand public, j'ai effectué la rétro-ingénierie du protocole RPC interne Boq/WIZ de Google — cartographiant les points d'accès <code>batchexecute</code> non documentés, l'extraction de jetons de session et le flux d'upload résumable Scotty pour les fichiers binaires. J'ai ensuite conçu un système passerelle complet — un plugin Zotero, une extension Chrome et un serveur IPC local — pour permettre une synchronisation bidirectionnelle transparente."
+               data-en="Researchers using Zotero had no way to leverage NotebookLM's AI features on their libraries. Since no public API exists for consumer NotebookLM, I reverse-engineered Google's internal Boq/WIZ RPC protocol — mapping undocumented <code>batchexecute</code> endpoints, session token extraction, and the Scotty resumable upload flow for binary files. I then engineered a full bridge system — a Zotero plugin, a Chrome extension, and a local IPC server — to enable seamless two-way sync between the two platforms.">
+              Les chercheurs utilisant Zotero n'avaient aucun moyen d'exploiter les fonctionnalités IA de NotebookLM sur leurs bibliothèques. En l'absence d'API publique pour NotebookLM grand public, j'ai effectué la rétro-ingénierie du protocole RPC interne Boq/WIZ de Google — cartographiant les points d'accès <code>batchexecute</code> non documentés, l'extraction de jetons de session et le flux d'upload résumable Scotty pour les fichiers binaires. J'ai ensuite conçu un système passerelle complet — un plugin Zotero, une extension Chrome et un serveur IPC local — pour permettre une synchronisation bidirectionnelle transparente.
+            </p>
+            <p data-fr="<strong>Impact produit&nbsp;:</strong>" data-en="<strong>Product Impact:</strong>">
+              <strong>Impact produit&nbsp;:</strong>
+            </p>
+            <ul>
+              <li data-fr="&bull; <strong>Architecture passerelle par polling&nbsp;:</strong> Conception d'un système RPC inversé où un serveur HTTP côté Zotero distribue les tâches à un content script Chrome exécuté dans la session NotebookLM authentifiée."
+                  data-en="&bull; <strong>Polling Bridge Architecture:</strong> Designed a reverse-RPC system where a Zotero-side HTTP server dispatches tasks to a Chrome content script running inside the authenticated NotebookLM session.">
+                &bull; <strong>Architecture passerelle par polling&nbsp;:</strong> Conception d'un système RPC inversé où un serveur HTTP côté Zotero distribue les tâches à un content script Chrome exécuté dans la session NotebookLM authentifiée.
+              </li>
+              <li data-fr="&bull; <strong>Stratégie bimodale&nbsp;:</strong> Implémentation de stratégies Consumer (Gratuit/Pro) et Entreprise, avec détection automatique de l'environnement utilisateur et routage des tâches en conséquence."
+                  data-en="&bull; <strong>Dual-Mode Strategy:</strong> Implemented both Consumer (Free/Pro) and Enterprise API strategies, auto-detecting the user's environment and routing tasks accordingly.">
+                &bull; <strong>Stratégie bimodale&nbsp;:</strong> Implémentation de stratégies Consumer (Gratuit/Pro) et Entreprise, avec détection automatique de l'environnement utilisateur et routage des tâches en conséquence.
+              </li>
+              <li data-fr="&bull; <strong>Synchronisation bidirectionnelle&nbsp;:</strong> La synchronisation aller envoie PDFs, URLs et métadonnées vers NotebookLM ; la synchronisation retour importe les guides sources et notes générés par l'IA dans Zotero."
+                  data-en="&bull; <strong>Bidirectional Sync:</strong> Forward sync uploads PDFs, URLs, and metadata to NotebookLM; reverse sync imports AI-generated source guides and notes back into Zotero.">
+                &bull; <strong>Synchronisation bidirectionnelle&nbsp;:</strong> La synchronisation aller envoie PDFs, URLs et métadonnées vers NotebookLM ; la synchronisation retour importe les guides sources et notes générés par l'IA dans Zotero.
+              </li>
+            </ul>
+          </div>
+          <div class="case-stats">
+            <div class="stat-box">
+              <h4 data-fr="Client" data-en="Client">Client</h4>
+              <p>Storia AI</p>
+            </div>
+            <div class="stat-box">
+              <h4 data-fr="Fondatrice" data-en="Founder">Fondatrice</h4>
+              <p>Julia Turc</p>
+            </div>
+            <div class="stat-box">
+              <h4 data-fr="Résultat" data-en="Outcome">Résultat</h4>
+              <p data-fr="Plugin open source & extension Chrome" data-en="Open-Source Plugin & Chrome Extension">Plugin open source & extension Chrome</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <section id="services">
       <h2 data-fr="Services" data-en="Services">Services</h2>
@@ -771,25 +1066,25 @@
         <input
           type="email"
           name="email"
-          placeholder="Courriel"
-          data-placeholder-fr="Courriel"
-          data-placeholder-en="Email"
+          placeholder="Courriel professionnel"
+          data-placeholder-fr="Courriel professionnel"
+          data-placeholder-en="Work Email"
           required
         >
         <input
           type="text"
           name="subject"
-          placeholder="Sujet"
-          data-placeholder-fr="Sujet"
-          data-placeholder-en="Subject"
+          placeholder="Projet / Défi produit"
+          data-placeholder-fr="Projet / Défi produit"
+          data-placeholder-en="Project / Product Challenge"
           required
         >
         <textarea
           name="message"
           rows="5"
-          placeholder="Message"
-          data-placeholder-fr="Message"
-          data-placeholder-en="Message"
+          placeholder="Que souhaitez-vous construire?"
+          data-placeholder-fr="Que souhaitez-vous construire?"
+          data-placeholder-en="What are you trying to build?"
           required
         ></textarea>
         <button type="submit" data-fr="Envoyer" data-en="Send">Envoyer</button>
@@ -797,7 +1092,7 @@
     </section>
   </main>
   <footer>
-    <span data-fr="&copy; 2025 Sagesse Numérique" data-en="&copy; 2025 Pixel Wisdom">&copy; 2025 Sagesse
+    <span data-fr="&copy; 2026 Sagesse Numérique" data-en="&copy; 2026 Pixel Wisdom">&copy; 2026 Sagesse
       Numérique</span>
   </footer>
 
