@@ -123,13 +123,13 @@
     }
 
     .lang-option.active {
-      background: #42a1f4;
+      background: linear-gradient(to bottom right, #42a1f4, #3b7db7);
       color: white;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     nav.scrolled .lang-option.active {
-      background: #42a1f4;
+      background: linear-gradient(to bottom right, #42a1f4, #2f73af);
       color: white;
     }
 
@@ -1052,13 +1052,14 @@
         </div>
         <div class="case-details">
           <div class="case-desc">
-            <p data-fr="Les chercheurs utilisant Zotero n'avaient aucun moyen d'exploiter les fonctionnalités IA de NotebookLM sur leurs bibliothèques. En l'absence d'API publique pour NotebookLM grand public, j'ai effectué la rétro-ingénierie du protocole RPC interne Boq/WIZ de Google — cartographiant les points d'accès <code>batchexecute</code> non documentés, l'extraction de jetons de session et le flux d'upload résumable Scotty pour les fichiers binaires. J'ai ensuite conçu un système passerelle complet — un plugin Zotero, une extension Chrome et un serveur IPC local — pour permettre une synchronisation bidirectionnelle transparente."
-              data-en="Researchers using Zotero had no way to leverage NotebookLM's AI features on their libraries. Since no public API exists for consumer NotebookLM, I reverse-engineered Google's internal Boq/WIZ RPC protocol — mapping undocumented <code>batchexecute</code> endpoints, session token extraction, and the Scotty resumable upload flow for binary files. I then engineered a full bridge system — a Zotero plugin, a Chrome extension, and a local IPC server — to enable seamless two-way sync between the two platforms.">
+            <p data-fr="Les chercheurs utilisant Zotero n'avaient aucun moyen d'exploiter les fonctionnalités IA de NotebookLM sur leurs bibliothèques. En l'absence d'API publique pour NotebookLM grand public, j'ai effectué la rétro-ingénierie du protocole RPC interne Boq/WIZ de Google — cartographiant les points d'accès <code>batchexecute</code> non documentés, l'extraction de jetons de session et le flux d'upload résumable Scotty pour les fichiers binaires.<br><br>J'ai ensuite conçu un système passerelle complet — un plugin Zotero, une extension Chrome et un serveur IPC local — pour permettre une synchronisation bidirectionnelle transparente."
+              data-en="Researchers using Zotero had no way to leverage NotebookLM's AI features on their libraries. Since no public API exists for consumer NotebookLM, I reverse-engineered Google's internal Boq/WIZ RPC protocol — mapping undocumented <code>batchexecute</code> endpoints, session token extraction, and the Scotty resumable upload flow for binary files.<br><br>I then engineered a full bridge system — a Zotero plugin, a Chrome extension, and a local IPC server — to enable seamless two-way sync between the two platforms.">
               Les chercheurs utilisant Zotero n'avaient aucun moyen d'exploiter les fonctionnalités IA de NotebookLM sur
               leurs bibliothèques. En l'absence d'API publique pour NotebookLM grand public, j'ai effectué la
               rétro-ingénierie du protocole RPC interne Boq/WIZ de Google — cartographiant les points d'accès
               <code>batchexecute</code> non documentés, l'extraction de jetons de session et le flux d'upload résumable
-              Scotty pour les fichiers binaires. J'ai ensuite conçu un système passerelle complet — un plugin Zotero,
+              Scotty pour les fichiers binaires.<br><br>J'ai ensuite conçu un système passerelle complet — un plugin
+              Zotero,
               une extension Chrome et un serveur IPC local — pour permettre une synchronisation bidirectionnelle
               transparente.
             </p>
