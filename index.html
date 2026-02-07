@@ -515,15 +515,60 @@
       line-height: 1.5;
     }
 
+    .about-intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-bio {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .about-bio-text {
+      flex: 1;
+    }
+
+    .about-photo {
+      flex-shrink: 0;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
     @media (max-width: 834px) {
       #about {
         font-size: 1.15rem;
+      }
+
+      .about-bio {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .about-intro {
+        text-align: center;
+      }
+
+      .about-photo {
+        width: 150px;
+        height: 150px;
       }
     }
 
     @media (max-width: 480px) {
       #about {
         font-size: 1.1rem;
+      }
+
+      .about-photo {
+        width: 130px;
+        height: 130px;
       }
     }
 
@@ -631,13 +676,16 @@
       gap: 1rem;
       width: 100%;
       max-width: 100%;
-      grid-template-columns: repeat(2, 1fr); /* Name | Email side-by-side */
-      padding: 0 0.5rem; /* Extra left/right padding */
+      grid-template-columns: repeat(2, 1fr);
+      /* Name | Email side-by-side */
+      padding: 0 0.5rem;
+      /* Extra left/right padding */
     }
 
     @media (max-width: 767px) {
       form {
-        grid-template-columns: 1fr; /* Stack on small screens */
+        grid-template-columns: 1fr;
+        /* Stack on small screens */
       }
     }
 
@@ -899,11 +947,23 @@
     </header>
     <section id="about">
       <h2 data-fr="À propos" data-en="About">À propos</h2>
-      <p data-fr="Sagesse Numérique, <strong>partenaire de confiance</strong>, allie expertise technique et ingéniosité pour créer des solutions logicielles personnalisées et faciles à utiliser."
+      <p class="about-intro"
+        data-fr="Sagesse Numérique, <strong>partenaire de confiance</strong>, allie expertise technique et ingéniosité pour créer des solutions logicielles personnalisées et faciles à utiliser."
         data-en="Pixel Wisdom, your <strong>trusted partner</strong>, combines technical expertise and ingenuity to create customized, user-friendly software solutions.">
         Sagesse Numérique, <strong>partenaire de confiance</strong>, allie expertise technique et ingéniosité pour
         créer des solutions logicielles personnalisées et faciles à utiliser.
       </p>
+      <div class="about-bio">
+        <p class="about-bio-text"
+          data-fr="Je suis <strong>Philippe Tremblay</strong>, fondateur et ingénieur produit. Passionné par l'<strong>expérience utilisateur</strong>, je conçois des logiciels pensés pour les vrais utilisateurs. Mon parcours en entreprise couvre les systèmes ERP, applications de point de vente, intégrations de paiement, gestion de flottes, et l'intégration d'APIs tierces pour des outils modernes d'IA, SaaS et B2B."
+          data-en="I'm <strong>Philippe Tremblay</strong>, founder and product engineer. Driven by a passion for <strong>exceptional user experience</strong>, I build software with real users in mind. My enterprise background spans ERP systems, point-of-sale applications, payment integrations, fleet management, and third-party API integrations for modern AI, SaaS and B2B tools.">
+          Je suis <strong>Philippe Tremblay</strong>, fondateur et ingénieur produit. Passionné par
+          l'<strong>expérience utilisateur</strong>, je conçois des logiciels pensés pour les vrais utilisateurs. Mon
+          parcours en entreprise couvre les systèmes ERP, applications de point de vente, intégrations de paiement,
+          gestion de flottes, et l'intégration d'APIs tierces pour des outils modernes d'IA, SaaS et B2B.
+        </p>
+        <img src="images/profile.jpg" alt="Philippe Tremblay" class="about-photo" />
+      </div>
     </section>
     <section id="work">
       <h2 data-fr="Réalisations" data-en="Featured Work">Réalisations</h2>
@@ -912,35 +972,46 @@
         <div class="case-header">
           <div class="meta-tags">
             <span class="meta-tag" data-fr="Ingénierie produit" data-en="Product Engineering">Ingénierie produit</span>
-            <span class="meta-tag" data-fr="Visualisation de données" data-en="Data Visualization">Visualisation de données</span>
+            <span class="meta-tag" data-fr="Visualisation de données" data-en="Data Visualization">Visualisation de
+              données</span>
           </div>
           <h3 data-fr="The ARC Prize Foundation" data-en="The ARC Prize Foundation">The ARC Prize Foundation</h3>
           <p data-fr="Collaboration avec l'équipe et <strong>Mike Knoop</strong> pour concevoir des <strong>interfaces de visualisation et de données</strong> pour le benchmark AGI doté de plus de 1M$."
-             data-en="Worked with the team and <strong>Mike Knoop</strong> to engineer <strong>visualization and data interfaces</strong> for the $1M+ AGI benchmark.">
-            Collaboration avec l'équipe et <strong>Mike Knoop</strong> pour concevoir des <strong>interfaces de visualisation et de données</strong> pour le benchmark AGI doté de plus de 1M$.
+            data-en="Worked with the team and <strong>Mike Knoop</strong> to engineer <strong>visualization and data interfaces</strong> for the $1M+ AGI benchmark.">
+            Collaboration avec l'équipe et <strong>Mike Knoop</strong> pour concevoir des <strong>interfaces de
+              visualisation et de données</strong> pour le benchmark AGI doté de plus de 1M$.
           </p>
         </div>
         <div class="case-details">
           <div class="case-desc">
             <p data-fr="Le défi ne consistait pas simplement à &laquo;&nbsp;afficher des données&nbsp;&raquo;, mais à définir comment les chercheurs interagissent avec une nouvelle forme de test d'intelligence. J'ai pris en charge l'implémentation complète de la couche de visualisation."
-               data-en="The challenge was not just &ldquo;displaying data,&rdquo; but defining how researchers interact with a new form of intelligence testing. I owned the end-to-end implementation of the visualization layer.">
-              Le défi ne consistait pas simplement à &laquo;&nbsp;afficher des données&nbsp;&raquo;, mais à définir comment les chercheurs interagissent avec une nouvelle forme de test d'intelligence. J'ai pris en charge l'implémentation complète de la couche de visualisation.
+              data-en="The challenge was not just &ldquo;displaying data,&rdquo; but defining how researchers interact with a new form of intelligence testing. I owned the end-to-end implementation of the visualization layer.">
+              Le défi ne consistait pas simplement à &laquo;&nbsp;afficher des données&nbsp;&raquo;, mais à définir
+              comment les chercheurs interagissent avec une nouvelle forme de test d'intelligence. J'ai pris en charge
+              l'implémentation complète de la couche de visualisation.
             </p>
             <p data-fr="<strong>Impact produit&nbsp;:</strong>" data-en="<strong>Product Impact:</strong>">
               <strong>Impact produit&nbsp;:</strong>
             </p>
             <ul>
-              <li data-fr="&bull; <strong>Explorateur visuel de tâches&nbsp;:</strong> Conception d'un explorateur SVG/Canvas permettant aux utilisateurs de naviguer parmi des centaines de puzzles de raisonnement abstrait."
-                  data-en="&bull; <strong>Visual Task Explorer:</strong> Engineered a complex SVG/Canvas based explorer allowing users to navigate hundreds of abstract reasoning puzzles.">
-                &bull; <strong>Explorateur visuel de tâches&nbsp;:</strong> Conception d'un explorateur SVG/Canvas permettant aux utilisateurs de naviguer parmi des centaines de puzzles de raisonnement abstrait.
+              <li
+                data-fr="&bull; <strong>Explorateur visuel de tâches&nbsp;:</strong> Conception d'un explorateur SVG/Canvas permettant aux utilisateurs de naviguer parmi des centaines de puzzles de raisonnement abstrait."
+                data-en="&bull; <strong>Visual Task Explorer:</strong> Engineered a complex SVG/Canvas based explorer allowing users to navigate hundreds of abstract reasoning puzzles.">
+                &bull; <strong>Explorateur visuel de tâches&nbsp;:</strong> Conception d'un explorateur SVG/Canvas
+                permettant aux utilisateurs de naviguer parmi des centaines de puzzles de raisonnement abstrait.
               </li>
-              <li data-fr="&bull; <strong>Infrastructure d'évaluation&nbsp;:</strong> Construction du &laquo;&nbsp;stade&nbsp;&raquo; de performance des modèles, avec des matrices de comparaison haute densité organisant les résultats de dizaines de modèles sur l'ensemble du jeu de données."
-                  data-en="&bull; <strong>Evaluation Infrastructure:</strong> Built the &ldquo;stadium&rdquo; for model performance, creating high-density comparison matrices that organize results across dozens of models and the full evaluation dataset.">
-                &bull; <strong>Infrastructure d'évaluation&nbsp;:</strong> Construction du &laquo;&nbsp;stade&nbsp;&raquo; de performance des modèles, avec des matrices de comparaison haute densité organisant les résultats de dizaines de modèles sur l'ensemble du jeu de données.
+              <li
+                data-fr="&bull; <strong>Infrastructure d'évaluation&nbsp;:</strong> Construction du &laquo;&nbsp;stade&nbsp;&raquo; de performance des modèles, avec des matrices de comparaison haute densité organisant les résultats de dizaines de modèles sur l'ensemble du jeu de données."
+                data-en="&bull; <strong>Evaluation Infrastructure:</strong> Built the &ldquo;stadium&rdquo; for model performance, creating high-density comparison matrices that organize results across dozens of models and the full evaluation dataset.">
+                &bull; <strong>Infrastructure d'évaluation&nbsp;:</strong> Construction du
+                &laquo;&nbsp;stade&nbsp;&raquo; de performance des modèles, avec des matrices de comparaison haute
+                densité organisant les résultats de dizaines de modèles sur l'ensemble du jeu de données.
               </li>
-              <li data-fr="&bull; <strong>Architecture des métadonnées&nbsp;:</strong> Conception du schéma et de la logique frontend pour organiser des métadonnées disparates en une expérience de navigation cohérente."
-                  data-en="&bull; <strong>Metadata Architecture:</strong> Designed the schema and frontend logic to organize disparate task metadata into a coherent browsing experience.">
-                &bull; <strong>Architecture des métadonnées&nbsp;:</strong> Conception du schéma et de la logique frontend pour organiser des métadonnées disparates en une expérience de navigation cohérente.
+              <li
+                data-fr="&bull; <strong>Architecture des métadonnées&nbsp;:</strong> Conception du schéma et de la logique frontend pour organiser des métadonnées disparates en une expérience de navigation cohérente."
+                data-en="&bull; <strong>Metadata Architecture:</strong> Designed the schema and frontend logic to organize disparate task metadata into a coherent browsing experience.">
+                &bull; <strong>Architecture des métadonnées&nbsp;:</strong> Conception du schéma et de la logique
+                frontend pour organiser des métadonnées disparates en une expérience de navigation cohérente.
               </li>
             </ul>
           </div>
@@ -955,7 +1026,8 @@
             </div>
             <div class="stat-box">
               <h4 data-fr="Résultat" data-en="Outcome">Résultat</h4>
-              <p data-fr="Interface interactive de benchmark" data-en="Interactive Benchmark UI">Interface interactive de benchmark</p>
+              <p data-fr="Interface interactive de benchmark" data-en="Interactive Benchmark UI">Interface interactive
+                de benchmark</p>
             </div>
           </div>
         </div>
@@ -965,36 +1037,55 @@
         <div class="case-header">
           <div class="meta-tags">
             <span class="meta-tag" data-fr="Ingénierie produit" data-en="Product Engineering">Ingénierie produit</span>
-            <span class="meta-tag" data-fr="Extension navigateur" data-en="Browser Extension">Extension navigateur</span>
+            <span class="meta-tag" data-fr="Extension navigateur" data-en="Browser Extension">Extension
+              navigateur</span>
             <span class="meta-tag" data-fr="Plugin Zotero" data-en="Zotero Plugin">Plugin Zotero</span>
           </div>
           <h3>Zotero NotebookLM</h3>
           <p data-fr="Développé pour <strong><a href='https://juliaturc.com/' target='_blank' rel='noopener'>Julia Turc</a></strong> (Fondatrice, <strong><a href='https://www.youtube.com/@juliaturc1' target='_blank' rel='noopener'>Storia.ai</a></strong>) — un moteur de synchronisation bidirectionnelle reliant <strong>Zotero</strong> à <strong>Google NotebookLM</strong>."
-             data-en="Built for <strong><a href='https://juliaturc.com/' target='_blank' rel='noopener'>Julia Turc</a></strong> (Founder, <strong><a href='https://www.youtube.com/@juliaturc1' target='_blank' rel='noopener'>Storia.ai</a></strong>) — a bidirectional sync engine connecting <strong>Zotero</strong> with <strong>Google NotebookLM</strong>.">
-            Développé pour <strong><a href="https://juliaturc.com/" target="_blank" rel="noopener">Julia Turc</a></strong> (Fondatrice, <strong><a href="https://www.youtube.com/@juliaturc1" target="_blank" rel="noopener">Storia.ai</a></strong>) — un moteur de synchronisation bidirectionnelle reliant <strong>Zotero</strong> à <strong>Google NotebookLM</strong>.
+            data-en="Built for <strong><a href='https://juliaturc.com/' target='_blank' rel='noopener'>Julia Turc</a></strong> (Founder, <strong><a href='https://www.youtube.com/@juliaturc1' target='_blank' rel='noopener'>Storia.ai</a></strong>) — a bidirectional sync engine connecting <strong>Zotero</strong> with <strong>Google NotebookLM</strong>.">
+            Développé pour <strong><a href="https://juliaturc.com/" target="_blank" rel="noopener">Julia
+                Turc</a></strong> (Fondatrice, <strong><a href="https://www.youtube.com/@juliaturc1" target="_blank"
+                rel="noopener">Storia.ai</a></strong>) — un moteur de synchronisation bidirectionnelle reliant
+            <strong>Zotero</strong> à <strong>Google NotebookLM</strong>.
           </p>
         </div>
         <div class="case-details">
           <div class="case-desc">
             <p data-fr="Les chercheurs utilisant Zotero n'avaient aucun moyen d'exploiter les fonctionnalités IA de NotebookLM sur leurs bibliothèques. En l'absence d'API publique pour NotebookLM grand public, j'ai effectué la rétro-ingénierie du protocole RPC interne Boq/WIZ de Google — cartographiant les points d'accès <code>batchexecute</code> non documentés, l'extraction de jetons de session et le flux d'upload résumable Scotty pour les fichiers binaires. J'ai ensuite conçu un système passerelle complet — un plugin Zotero, une extension Chrome et un serveur IPC local — pour permettre une synchronisation bidirectionnelle transparente."
-               data-en="Researchers using Zotero had no way to leverage NotebookLM's AI features on their libraries. Since no public API exists for consumer NotebookLM, I reverse-engineered Google's internal Boq/WIZ RPC protocol — mapping undocumented <code>batchexecute</code> endpoints, session token extraction, and the Scotty resumable upload flow for binary files. I then engineered a full bridge system — a Zotero plugin, a Chrome extension, and a local IPC server — to enable seamless two-way sync between the two platforms.">
-              Les chercheurs utilisant Zotero n'avaient aucun moyen d'exploiter les fonctionnalités IA de NotebookLM sur leurs bibliothèques. En l'absence d'API publique pour NotebookLM grand public, j'ai effectué la rétro-ingénierie du protocole RPC interne Boq/WIZ de Google — cartographiant les points d'accès <code>batchexecute</code> non documentés, l'extraction de jetons de session et le flux d'upload résumable Scotty pour les fichiers binaires. J'ai ensuite conçu un système passerelle complet — un plugin Zotero, une extension Chrome et un serveur IPC local — pour permettre une synchronisation bidirectionnelle transparente.
+              data-en="Researchers using Zotero had no way to leverage NotebookLM's AI features on their libraries. Since no public API exists for consumer NotebookLM, I reverse-engineered Google's internal Boq/WIZ RPC protocol — mapping undocumented <code>batchexecute</code> endpoints, session token extraction, and the Scotty resumable upload flow for binary files. I then engineered a full bridge system — a Zotero plugin, a Chrome extension, and a local IPC server — to enable seamless two-way sync between the two platforms.">
+              Les chercheurs utilisant Zotero n'avaient aucun moyen d'exploiter les fonctionnalités IA de NotebookLM sur
+              leurs bibliothèques. En l'absence d'API publique pour NotebookLM grand public, j'ai effectué la
+              rétro-ingénierie du protocole RPC interne Boq/WIZ de Google — cartographiant les points d'accès
+              <code>batchexecute</code> non documentés, l'extraction de jetons de session et le flux d'upload résumable
+              Scotty pour les fichiers binaires. J'ai ensuite conçu un système passerelle complet — un plugin Zotero,
+              une extension Chrome et un serveur IPC local — pour permettre une synchronisation bidirectionnelle
+              transparente.
             </p>
             <p data-fr="<strong>Impact produit&nbsp;:</strong>" data-en="<strong>Product Impact:</strong>">
               <strong>Impact produit&nbsp;:</strong>
             </p>
             <ul>
-              <li data-fr="&bull; <strong>Architecture passerelle par polling&nbsp;:</strong> Conception d'un système RPC inversé où un serveur HTTP côté Zotero distribue les tâches à un content script Chrome exécuté dans la session NotebookLM authentifiée."
-                  data-en="&bull; <strong>Polling Bridge Architecture:</strong> Designed a reverse-RPC system where a Zotero-side HTTP server dispatches tasks to a Chrome content script running inside the authenticated NotebookLM session.">
-                &bull; <strong>Architecture passerelle par polling&nbsp;:</strong> Conception d'un système RPC inversé où un serveur HTTP côté Zotero distribue les tâches à un content script Chrome exécuté dans la session NotebookLM authentifiée.
+              <li
+                data-fr="&bull; <strong>Architecture passerelle par polling&nbsp;:</strong> Conception d'un système RPC inversé où un serveur HTTP côté Zotero distribue les tâches à un content script Chrome exécuté dans la session NotebookLM authentifiée."
+                data-en="&bull; <strong>Polling Bridge Architecture:</strong> Designed a reverse-RPC system where a Zotero-side HTTP server dispatches tasks to a Chrome content script running inside the authenticated NotebookLM session.">
+                &bull; <strong>Architecture passerelle par polling&nbsp;:</strong> Conception d'un système RPC inversé
+                où un serveur HTTP côté Zotero distribue les tâches à un content script Chrome exécuté dans la session
+                NotebookLM authentifiée.
               </li>
-              <li data-fr="&bull; <strong>Stratégie bimodale&nbsp;:</strong> Implémentation de stratégies Consumer (Gratuit/Pro) et Entreprise, avec détection automatique de l'environnement utilisateur et routage des tâches en conséquence."
-                  data-en="&bull; <strong>Dual-Mode Strategy:</strong> Implemented both Consumer (Free/Pro) and Enterprise API strategies, auto-detecting the user's environment and routing tasks accordingly.">
-                &bull; <strong>Stratégie bimodale&nbsp;:</strong> Implémentation de stratégies Consumer (Gratuit/Pro) et Entreprise, avec détection automatique de l'environnement utilisateur et routage des tâches en conséquence.
+              <li
+                data-fr="&bull; <strong>Stratégie bimodale&nbsp;:</strong> Implémentation de stratégies Consumer (Gratuit/Pro) et Entreprise, avec détection automatique de l'environnement utilisateur et routage des tâches en conséquence."
+                data-en="&bull; <strong>Dual-Mode Strategy:</strong> Implemented both Consumer (Free/Pro) and Enterprise API strategies, auto-detecting the user's environment and routing tasks accordingly.">
+                &bull; <strong>Stratégie bimodale&nbsp;:</strong> Implémentation de stratégies Consumer (Gratuit/Pro) et
+                Entreprise, avec détection automatique de l'environnement utilisateur et routage des tâches en
+                conséquence.
               </li>
-              <li data-fr="&bull; <strong>Synchronisation bidirectionnelle&nbsp;:</strong> La synchronisation aller envoie PDFs, URLs et métadonnées vers NotebookLM ; la synchronisation retour importe les guides sources et notes générés par l'IA dans Zotero."
-                  data-en="&bull; <strong>Bidirectional Sync:</strong> Forward sync uploads PDFs, URLs, and metadata to NotebookLM; reverse sync imports AI-generated source guides and notes back into Zotero.">
-                &bull; <strong>Synchronisation bidirectionnelle&nbsp;:</strong> La synchronisation aller envoie PDFs, URLs et métadonnées vers NotebookLM ; la synchronisation retour importe les guides sources et notes générés par l'IA dans Zotero.
+              <li
+                data-fr="&bull; <strong>Synchronisation bidirectionnelle&nbsp;:</strong> La synchronisation aller envoie PDFs, URLs et métadonnées vers NotebookLM ; la synchronisation retour importe les guides sources et notes générés par l'IA dans Zotero."
+                data-en="&bull; <strong>Bidirectional Sync:</strong> Forward sync uploads PDFs, URLs, and metadata to NotebookLM; reverse sync imports AI-generated source guides and notes back into Zotero.">
+                &bull; <strong>Synchronisation bidirectionnelle&nbsp;:</strong> La synchronisation aller envoie PDFs,
+                URLs et métadonnées vers NotebookLM ; la synchronisation retour importe les guides sources et notes
+                générés par l'IA dans Zotero.
               </li>
             </ul>
           </div>
@@ -1009,7 +1100,8 @@
             </div>
             <div class="stat-box">
               <h4 data-fr="Résultat" data-en="Outcome">Résultat</h4>
-              <p data-fr="Plugin open source & extension Chrome" data-en="Open-Source Plugin & Chrome Extension">Plugin open source & extension Chrome</p>
+              <p data-fr="Plugin open source & extension Chrome" data-en="Open-Source Plugin & Chrome Extension">Plugin
+                open source & extension Chrome</p>
             </div>
           </div>
         </div>
@@ -1055,38 +1147,14 @@
     <section id="contact">
       <h2 data-fr="Contact" data-en="Contact">Contact</h2>
       <form action="https://formsubmit.co/p.h.i.l@live.ca" method="post">
-        <input
-          type="text"
-          name="name"
-          placeholder="Nom"
-          data-placeholder-fr="Nom"
-          data-placeholder-en="Name"
-          required
-        >
-        <input
-          type="email"
-          name="email"
-          placeholder="Courriel professionnel"
-          data-placeholder-fr="Courriel professionnel"
-          data-placeholder-en="Work Email"
-          required
-        >
-        <input
-          type="text"
-          name="subject"
-          placeholder="Projet / Défi produit"
-          data-placeholder-fr="Projet / Défi produit"
-          data-placeholder-en="Project / Product Challenge"
-          required
-        >
-        <textarea
-          name="message"
-          rows="5"
-          placeholder="Que souhaitez-vous construire?"
-          data-placeholder-fr="Que souhaitez-vous construire?"
-          data-placeholder-en="What are you trying to build?"
-          required
-        ></textarea>
+        <input type="text" name="name" placeholder="Nom" data-placeholder-fr="Nom" data-placeholder-en="Name" required>
+        <input type="email" name="email" placeholder="Courriel professionnel"
+          data-placeholder-fr="Courriel professionnel" data-placeholder-en="Work Email" required>
+        <input type="text" name="subject" placeholder="Projet / Défi produit"
+          data-placeholder-fr="Projet / Défi produit" data-placeholder-en="Project / Product Challenge" required>
+        <textarea name="message" rows="5" placeholder="Que souhaitez-vous construire?"
+          data-placeholder-fr="Que souhaitez-vous construire?" data-placeholder-en="What are you trying to build?"
+          required></textarea>
         <button type="submit" data-fr="Envoyer" data-en="Send">Envoyer</button>
       </form>
     </section>
