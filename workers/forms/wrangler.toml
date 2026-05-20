@@ -1,0 +1,17 @@
+name = "sagessenumerique-forms"
+main = "src/index.js"
+compatibility_date = "2026-05-20"
+
+routes = [
+  { pattern = "sagessenumerique.ca/api/forms/*", zone_name = "sagessenumerique.ca" },
+  { pattern = "www.sagessenumerique.ca/api/forms/*", zone_name = "sagessenumerique.ca" }
+]
+
+[vars]
+ALLOWED_ORIGINS = "https://sagessenumerique.ca,https://www.sagessenumerique.ca"
+TO_EMAIL = "phil@sagessenumerique.ca"
+FROM_EMAIL = "forms@sagessenumerique.ca"
+SES_REGION = "us-east-1"
+SES_FROM_EMAIL = "forms@sagessenumerique.ca"
+
+# Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as Worker secrets for SES delivery.
