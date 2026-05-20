@@ -3,7 +3,7 @@ import worker from "./src/index.js";
 const env = {
   ALLOWED_ORIGINS: "https://sagessenumerique.ca",
   DRY_RUN: "true",
-  TO_EMAIL: "phil@sagessenumerique.ca",
+  TO_EMAIL: "phil@sagessenumerique.ca,p.h.i.l@live.ca",
   FROM_EMAIL: "forms@sagessenumerique.ca",
   SES_REGION: "us-east-1",
   SES_FROM_EMAIL: "forms@sagessenumerique.ca"
