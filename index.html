@@ -1181,8 +1181,15 @@
       <form action="/api/forms/submit" method="post" data-contact-form>
         <input type="hidden" name="form" value="sagessenumerique-contact">
         <input type="hidden" name="page" value="https://sagessenumerique.ca/">
+        <input type="hidden" name="elapsed_ms" value="" data-form-elapsed>
+        <label class="visually-hidden" for="_gotcha">Laissez ce champ vide</label>
+        <input class="visually-hidden" type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
         <label class="visually-hidden" for="fax_number">Laissez ce champ vide</label>
         <input class="visually-hidden" type="text" id="fax_number" name="fax_number" tabindex="-1" autocomplete="off">
+        <label class="visually-hidden" for="company_website">Laissez ce champ vide</label>
+        <input class="visually-hidden" type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+        <label class="visually-hidden" for="website_url">Laissez ce champ vide</label>
+        <input class="visually-hidden" type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
         <input type="text" name="name" placeholder="Nom" data-placeholder-fr="Nom" data-placeholder-en="Name" required>
         <input type="email" name="email" placeholder="Courriel professionnel"
           data-placeholder-fr="Courriel professionnel" data-placeholder-en="Work Email" required>
@@ -1309,8 +1316,15 @@
     const formStatus = document.querySelector('[data-form-status]');
 
     if (contactForm && formStatus) {
+      const formStartedAt = Date.now();
+      const elapsedField = contactForm.querySelector('[data-form-elapsed]');
+
       contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
+
+        if (elapsedField) {
+          elapsedField.value = String(Date.now() - formStartedAt);
+        }
 
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalLabel = submitButton.textContent;
