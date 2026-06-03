@@ -730,28 +730,37 @@
       line-height: 1.5;
     }
 
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 176px;
+      align-items: end;
+      gap: 2rem;
+    }
+
+    .about-copy {
+      min-width: 0;
+    }
+
     .about-intro {
       margin-bottom: 1.5rem;
     }
 
-    .about-bio {
-      display: flex;
-      align-items: flex-start;
-      gap: 2rem;
-    }
-
     .about-bio-text {
-      flex: 1;
+      margin-bottom: 0;
     }
 
     .about-photo {
-      flex-shrink: 0;
-      width: 160px;
-      height: 160px;
+      align-self: center;
+      justify-self: end;
+      width: 176px;
+      height: 176px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center top;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      object-position: center;
+      border: 3px solid rgba(255, 255, 255, 0.88);
+      box-shadow:
+        0 10px 24px rgba(31, 36, 40, 0.14),
+        0 2px 6px rgba(31, 36, 40, 0.08);
     }
 
     @media (max-width: 834px) {
@@ -759,15 +768,22 @@
         font-size: 1.15rem;
       }
 
-      .about-bio {
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: 1.5rem;
+      .about-layout {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1.25rem;
+      }
+
+      .about-copy {
+        order: 2;
       }
 
       .about-photo {
+        order: 1;
+        justify-self: center;
         width: 150px;
         height: 150px;
+        border-width: 2px;
       }
     }
 
@@ -1519,13 +1535,14 @@
     </header>
     <section id="about">
       <h2 data-fr="À propos" data-en="About">À propos</h2>
-      <p class="about-intro"
-        data-fr="Sagesse Numérique est mon atelier de services pour les organisations d’ici qui doivent transformer des processus, connecter des systèmes et livrer des produits numériques durables."
-        data-en="Sagesse Numérique is my service practice for local organizations that need to transform processes, connect systems, and ship durable digital products.">
-        Sagesse Numérique est mon atelier de services pour les organisations d’ici qui doivent transformer des processus,
-        connecter des systèmes et livrer des produits numériques durables.
-      </p>
-      <div class="about-bio">
+      <div class="about-layout">
+        <div class="about-copy">
+          <p class="about-intro"
+            data-fr="Sagesse Numérique est mon atelier de services pour les organisations d’ici qui doivent transformer des processus, connecter des systèmes et livrer des produits numériques durables."
+            data-en="Sagesse Numérique is my service practice for local organizations that need to transform processes, connect systems, and ship durable digital products.">
+            Sagesse Numérique est mon atelier de services pour les organisations d’ici qui doivent transformer des processus,
+            connecter des systèmes et livrer des produits numériques durables.
+          </p>
         <p class="about-bio-text"
           data-fr="Je suis <strong>Philippe Tremblay</strong>, ingénieur produit et développeur logiciel/web/mobile. J’interviens là où le produit, le code et les opérations se rencontrent : applications internes, intégrations API, plateformes SaaS, systèmes de paiement, ERP, outils IA et interfaces utilisées par de vrais humains."
           data-en="I'm <strong>Philippe Tremblay</strong>, a product engineer and software/web/mobile developer. I work where product, code, and operations meet: internal applications, API integrations, SaaS platforms, payment systems, ERP workflows, AI tools, and interfaces used by real humans.">
@@ -1533,6 +1550,7 @@
           le produit, le code et les opérations se rencontrent : applications internes, intégrations API, plateformes SaaS,
           systèmes de paiement, ERP, outils IA et interfaces utilisées par de vrais humains.
         </p>
+        </div>
         <img src="images/profile.jpg" alt="Philippe Tremblay" class="about-photo" />
       </div>
     </section>
