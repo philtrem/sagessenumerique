@@ -51,12 +51,17 @@
       color: var(--ink);
       background: var(--paper);
       margin: 0;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
     a {
       color: #42a1f4;
       text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
     }
 
     /* Navigation */
@@ -99,6 +104,7 @@
       list-style: none;
       padding: 0;
       flex: 1;
+      min-width: 0;
     }
 
     .brand-link {
@@ -118,6 +124,7 @@
       display: inline-flex;
       align-items: center;
       flex: 0 0 auto;
+      min-width: 0;
     }
 
     .brand-logo-img {
@@ -177,6 +184,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      flex: 0 0 auto;
       padding: 0.25rem 0.5rem;
       border-radius: 20px;
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.15));
@@ -255,19 +263,63 @@
       }
     }
 
-    /* Mobile Landscape & Small Tablet */
-    @media (max-width: 767px) {
+    /* Tablet / Mobile Navigation */
+    @media (max-width: 900px) {
+      nav {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 3.5rem;
+        padding: 0.55rem 0.85rem 0.65rem;
+        row-gap: 0.35rem;
+      }
+
+      .brand-link {
+        flex: 1 1 0;
+        overflow: hidden;
+      }
+
+      .brand-wordmark-frame {
+        overflow: hidden;
+      }
+
+      .brand-wordmark {
+        width: auto;
+        max-width: clamp(8rem, 42vw, 12rem);
+        height: auto;
+        max-height: 1.24rem;
+      }
+
+      nav ul {
+        order: 3;
+        flex: 0 0 100%;
+        justify-content: flex-start;
+        gap: 0.2rem;
+        overflow-x: auto;
+        padding-top: 0.15rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      nav ul::-webkit-scrollbar {
+        display: none;
+      }
+
+      nav li {
+        margin: 0;
+      }
+
       nav a {
-        padding: 0.75rem 0.75rem;
+        padding: 0.45rem 0.55rem;
+        white-space: nowrap;
       }
     }
 
     /* Mobile Portrait */
     @media (max-width: 480px) {
       nav {
-        font-size: 0.9rem;
+        font-size: 0.86rem;
         line-height: 1;
-        padding: 0.5rem 0.5rem;
+        padding: 0.55rem 0.7rem 0.65rem;
         gap: 0.4rem;
       }
 
@@ -281,7 +333,8 @@
       }
 
       .brand-wordmark {
-        height: 1.08rem;
+        max-width: 34vw;
+        max-height: 1.08rem;
       }
 
       nav li {
@@ -289,7 +342,7 @@
       }
 
       nav a {
-        padding: 0.75rem 0.5rem;
+        padding: 0.45rem 0.45rem;
       }
 
       .lang-toggle {
@@ -298,7 +351,7 @@
       }
 
       .lang-option {
-        font-size: 0.8rem;
+        font-size: 0.76rem;
         padding: 0.15rem 0.3rem;
       }
     }
@@ -319,6 +372,7 @@
       max-width: 1000px;
       margin: 0 auto;
       padding: 7rem 0.5rem 4.5rem;
+      min-width: 0;
     }
 
     .hero-eyebrow {
@@ -343,8 +397,9 @@
       color: var(--charcoal);
       font-size: clamp(2.6rem, 7vw, 5.7rem);
       line-height: 0.98;
-      letter-spacing: -0.075em;
+      letter-spacing: 0;
       font-weight: 800;
+      overflow-wrap: break-word;
     }
 
     .hero-title em {
@@ -365,6 +420,7 @@
       flex-wrap: wrap;
       gap: 0.9rem;
       margin-bottom: 2rem;
+      max-width: 100%;
     }
 
     .button-primary,
@@ -376,7 +432,8 @@
       padding: 0.8rem 1.15rem;
       border-radius: 8px;
       font-weight: 800;
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
+      overflow-wrap: break-word;
     }
 
     .button-primary {
@@ -440,9 +497,9 @@
     /* Desktop Small */
     @media (max-width: 1024px) {
       .content-header {
-        margin: 4rem auto 3rem;
-        min-height: 5.5rem;
-        padding: 0 1rem;
+        margin: 0 auto 3rem;
+        min-height: 0;
+        padding: 5rem 2rem 3.75rem;
       }
 
       .content-header h1[id^="header-layer-"] {
@@ -456,9 +513,9 @@
     /* Intermediate range - fixes overlap issue */
     @media (max-width: 900px) {
       .content-header {
-        margin: 3.5rem auto 2rem;
-        min-height: 5rem;
-        padding: 0 1rem;
+        margin: 0 auto 2.5rem;
+        min-height: 0;
+        padding: 4.75rem 2rem 3.25rem;
       }
 
       .content-header h1[id^="header-layer-"] {
@@ -473,8 +530,8 @@
     /* Tablet Portrait */
     @media (max-width: 834px) {
       .content-header {
-        min-height: 4.5rem;
-        padding: 0 1rem;
+        min-height: 0;
+        padding: 4.75rem 2rem 3rem;
       }
 
       .content-header h1[id^="header-layer-"] {
@@ -490,7 +547,42 @@
     /* Mobile Landscape & Small Tablet */
     @media (max-width: 767px) {
       .content-header {
-        min-height: 3.5rem;
+        min-height: 0;
+        padding: 3rem 1.25rem 2.75rem;
+      }
+
+      .hero-eyebrow {
+        display: inline-block;
+        max-width: 100%;
+        font-size: 0.68rem;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-title {
+        max-width: 100%;
+        font-size: clamp(1.95rem, 9vw, 2.6rem);
+        line-height: 1.05;
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-lede {
+        font-size: 1rem;
+        overflow-wrap: break-word;
+      }
+
+      .button-primary,
+      .button-secondary {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0.95rem;
+        padding-left: 0.95rem;
+        font-size: 0.96rem;
+        line-height: 1.25;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
       }
 
       .content-header h1[id^="header-layer-"] {
@@ -504,7 +596,8 @@
     /* Mobile Landscape & Small Tablet */
     @media (max-width: 600px) {
       .content-header {
-        min-height: 3rem;
+        min-height: 0;
+        padding: 2.75rem 1.25rem 2.5rem;
       }
 
       .content-header h1[id^="header-layer-"] {
@@ -518,7 +611,11 @@
     /* Mobile Portrait */
     @media (max-width: 510px) {
       .content-header {
-        min-height: 2.5rem;
+        min-height: 0;
+      }
+
+      .hero-title {
+        font-size: clamp(1.9rem, 9vw, 2.35rem);
       }
 
       .content-header h1[id^="header-layer-"] {
@@ -534,7 +631,7 @@
     /* Mobile Portrait - smaller */
     @media (max-width: 450px) {
       .content-header {
-        min-height: 4.25rem;
+        min-height: 0;
       }
 
       .content-header h1[id^="header-layer-"] {
@@ -589,7 +686,8 @@
 
       /* Header title adjustments for iPad to match desktop width and alignment */
       .content-header {
-        padding: 0 1rem !important;
+        margin: 0 auto 3rem;
+        padding: 5rem 2rem 3.5rem !important;
       }
 
       .content-header h1[id^="header-layer-"] {
@@ -601,7 +699,8 @@
 
       @media (max-width: 940px) {
         .content-header {
-          padding: 0 1rem !important;
+          margin: 0 auto 2.5rem;
+          padding: 4.75rem 2rem 3.25rem !important;
         }
 
         .content-header h1[id^="header-layer-"] {
@@ -697,7 +796,7 @@
     @media (max-width: 480px) {
       section {
         margin: 2rem auto;
-        padding: 0 1.8rem;
+        padding: 0 1.25rem;
       }
     }
 
@@ -1445,7 +1544,7 @@
       }
 
       .content-header {
-        padding: 5rem 1.8rem 2.5rem;
+        padding: 3rem 1.25rem 2.75rem;
       }
 
       .hero-actions {
