@@ -2,3 +2,7 @@
 *.env
 .env.*
 grantlet.policy.json
+node_modules/
+package.json
+package-lock.json
+scripts/
