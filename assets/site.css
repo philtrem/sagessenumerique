@@ -1363,18 +1363,20 @@ h3 {
 }
 
 .about-portrait {
-  width: min(11rem, 42vw);
+  width: min(100%, 16rem);
+  aspect-ratio: 1 / 1;
   margin-top: 1.6rem;
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 1.1rem;
+  border-radius: 1.25rem;
   box-shadow: var(--shadow-md);
 }
 
 .about-portrait img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .about-body {
