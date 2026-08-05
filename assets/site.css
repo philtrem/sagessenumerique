@@ -731,6 +731,10 @@ h3 {
 }
 
 .console-list li {
+  min-width: 0;
+}
+
+.console-list a {
   display: grid;
   grid-template-columns: 1.6rem 1fr;
   gap: 0.65rem;
@@ -739,7 +743,22 @@ h3 {
   border: 1px solid var(--border);
   border-radius: 0.68rem;
   background: var(--surface);
+  color: inherit;
   box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.console-list a:hover {
+  border-color: #b2ccff;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.console-list a:focus-visible {
+  border-color: var(--blue);
+  outline: 3px solid var(--blue-soft);
+  outline-offset: 2px;
 }
 
 .console-list b {
@@ -793,6 +812,7 @@ h3 {
   --card-accent: var(--blue);
   position: relative;
   overflow: hidden;
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
   padding: clamp(1.65rem, 3.5vw, 2.45rem);
   border: 1px solid var(--border);
   border-radius: var(--radius);
